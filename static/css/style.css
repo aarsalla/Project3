@@ -34,10 +34,11 @@ body {
 .footer > .bottom {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 40px;
   left: 0;
   padding: 5px;
   background: #041c2b;
+  text-align: center;
 }
 
 .navbar {
