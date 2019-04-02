@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:Password1!!!@codingbootcamp.ctxjv3tnsa2p.us-east-2.rds.amazonaws.com/marchmadness"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://root:{remote_gwsis_dbpwd}@codingbootcamp.ctxjv3tnsa2p.us-east-2.rds.amazonaws.com/marchmadness"
 db = SQLAlchemy(app)
 
 Base = automap_base()
