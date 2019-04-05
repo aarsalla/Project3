@@ -41,7 +41,8 @@ d3.csv("DowJonesPlus3_Coordinations.csv", function(error, csvData) {
   headquarters.addTo(myMap);
 */
   csvData.forEach(function(data){
-    var marker = L.Marker([data.Latitude, data.Longitude]);
+    console.log(data)
+    var marker = new L.Marker([+data.Latitude, +data.Longitude]);
     marker.desc = data.Name;
     myMap.addLayer(marker);
     oms.addMarker(marker);
