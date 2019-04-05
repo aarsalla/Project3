@@ -24,8 +24,10 @@ Base.prepare(db.engine, reflect=True)
 
 data_base_table = Base.classes.earnings
 
-
 @app.route("/")
+def home():
+    return render_template("index.html")
+@app.route("/x")
 def samples():
    
     stmt = db.session.query(data_base_table).statement
