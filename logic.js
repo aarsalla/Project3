@@ -11,6 +11,23 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(myMap);
 
+function chooseColor(stock_price) {
+  switch (true) {
+  case (stock_price < 0):
+    return "#35ef02";
+  case (1 <= mag && mag < 2):
+    return "#cdf44e";
+  case (2 <= mag && mag < 3):
+    return "#fcd664";
+  case (3 <= mag && mag < 4):
+    return "#f49733";
+  case (4 <= mag && mag < 5):
+    return "#ff862a";
+  defualt:
+    return "#c6310f";
+  }
+}
+
 markers = [];
 
 d3.csv("DowJonesPlus3_Coordinations.csv", function(error, csvData) {

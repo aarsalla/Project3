@@ -40,71 +40,19 @@ function stockColor(stock_price) {
   }
 }
 
-
 d3.csv("DowJonesPlus3_Coordinations.csv", function(error, csvData) {
   if (error) console.log(error);
 
-  //console.log(csvData);
+  console.log(csvData);
 
   csvData.forEach(function(data){
     console.log(data)
     var marker = new L.Marker([+data.Latitude, +data.Longitude], {icon: greenIcon});
-
-    var today = new Date()
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
-    var lastDate_API = yyyy + '-' + mm + '-' + dd;
-    var lastDate_JS = mm + '/' + dd + '/' + yyyy;
-
-    var thirty_days_prior = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-    var dd2 = String(thirty_days_prior.getDate()-1).padStart(2, '0');
-    var mm2 = String(thirty_days_prior.getMonth() + 1).padStart(2, '0');
-    var yyyy2 = thirty_days_prior.getFullYear();
-    var thirty_days_prior_API = yyyy2 + '-' + mm2 + '-' + dd2;
-    var thirty_days_prior_JS = mm2 + '/' + dd2 + '/' + yyyy2;
-
-    console.log(lastDate_API)
-    console.log(thirty_days_prior_API)
-
-    var stock_ticker = data["Stock Ticker"];
-    
-    console.log(stock_ticker)
-
-    var apiKey = "REHgZFPuj_3cxTxuwvsn";
-    var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock_ticker}?start_date=${thirty_days_prior_API}&end_date=${lastDate_API}&api_key=${apiKey}`;
-    
-    console.log(url)
-
-    d3.json(url).then(function(jsonData){
-      console.log(jsonData)
-
-    });
-
-    //console.log(dates)
-    //console.log(closingPrices)
-
-    marker.desc = data.Name;
+    marker.desc = data.Stock;
     myMap.addLayer(marker);
     oms.addMarker(marker);
 
   });
-
-  /*
-  var apiKey = "REHgZFPuj_3cxTxuwvsn";
-  var url2 = `https://www.quandl.com/api/v3/datasets/EOD/FB?start_date=2019-03-06&end_date=2019-04-06&api_key=REHgZFPuj_3cxTxuwvsn`;
-  
-  console.log(url2)
-  d3.json(url2).then;
-
-  function foo(foo)
-  {
-    console.log('hi');
-     console.log(foo)
-    //var dates = unpack(jsonData.dataset.data, 0);
-    //var closingPrices = unpack(jsonData.dataset.data, 4);
-  }
-  */
 
 });
 

@@ -83,6 +83,8 @@ options = {
   iconShape: 'marker'
 };
 L.marker([43.7502192, -75.9726673], {
-  icon: L.BeautifyIcon.icon(options),
+  icon: L.BeautifyIcon.(options),
   draggable: true
 }).addTo(myMap).bindPopup("popup").bindPopup("This is a BeautifyMarker");
+
+
