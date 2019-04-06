@@ -19,9 +19,24 @@ function getdata(stock){
     var earnings = filter_data.map(d=>+d['Earnings Per Share']);
     var ReportedDate = filter_data.map(d=>d['Reported Date']);
     var forecasted = filter_data.map(d=>+d['Forecasted Earnings Per Share']);
+    var surprise = filter_data.map(d=>d['% Surprise']);
       //stock quartly graphs
    var apiKey = "REHgZFPuj_3cxTxuwvsn";
    console.log(ReportedDate)
+   var i
+   for (i=0; i<4; i++){
+       d3.select(`#text${i}`).append("h3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[i]}%`)
+     //  d3.select("#surprise1").text(`Earnings Percent Change Vs. Forecasted: ${surprise[1]}%`)
+     //  d3.select("#surprise2").text(`Earnings Percent Change Vs. Forecasted: ${surprise[2]}%`)
+     //  d3.select("#surprise3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[3]}%`)
+     
+        d3.select(`#text${i}`).append("h4").text(`Earnings Report Date: ${ReportedDate[i]}`)
+        d3.select(`#text${i}`).append("hr")
+     //  d3.select("#report1").text(`Earnings Report Date: ${ReportedDate[1]}`)
+     //  d3.select("#report2").text(`Earnings Report Date: ${ReportedDate[2]}`)
+     //  d3.select("#report3").text(`Earnings Report Date: ${ReportedDate[3]}`)
+   }
+
   //Q1
     var start_q1 = new Date(ReportedDate[0])
     var apiKey = "REHgZFPuj_3cxTxuwvsn";
@@ -29,10 +44,24 @@ function getdata(stock){
     var mm = String(start_q1.getMonth() + 1).padStart(2, '0');
     var yyyy = start_q1.getFullYear();
     var date_q1 = yyyy + '-' + mm + '-' + dd;
-    var dd2 = String(start_q1.getDate()-3).padStart(2, '0');
-    var mm2 = String(start_q1.getMonth() + 2).padStart(2, '0');
-    var yyyy2 = start_q1.getFullYear();
+    var date_title_1 = mm + '/' + dd + '/' + yyyy;
+    
+    if (mm === '12'){
+        var dd2 = String(start_q1.getDate()-1).padStart(2, '0');
+        var mm2 = "01";
+        var yyyy2 = start_q1.getFullYear()+1;
+    } else if (mm === '1'){
+        var dd2 = String(start_q1.getDate()-3).padStart(2, '0');
+        var mm2 = String(start_q1.getMonth() + 2).padStart(2, '0');
+        var yyyy2 = start_q1.getFullYear();
+    } else {
+        var dd2 = String(start_q1.getDate()-1).padStart(2, '0');
+        var mm2 = String(start_q1.getMonth() + 2).padStart(2, '0');
+        var yyyy2 = start_q1.getFullYear();
+    }
     var month_q1 = yyyy2 + '-' + mm2 + '-' + dd2;
+   
+    console.log(surprise[0])
     var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q1}&end_date=${month_q1}&api_key=${apiKey}`;
 
     d3.json(url).then(function(data){
@@ -52,7 +81,7 @@ function getdata(stock){
           color: "#17BECF"}};
       var data4 = [trace4];
       var layout = {
-        title: `${stock} Stock Price after Q1 Earnings Report`,
+        title: `${stock} Stock Price after ${date_title_1} Earnings Report`,
         xaxis: {
           range: [startDate, endDate],
           type: "date"},
@@ -69,9 +98,20 @@ function getdata(stock){
       var mm = String(start_q2.getMonth() + 1).padStart(2, '0');
       var yyyy = start_q2.getFullYear();
       var date_q2 = yyyy + '-' + mm + '-' + dd;
-      var dd2 = String(start_q2.getDate()-3).padStart(2, '0');
-      var mm2 = String(start_q2.getMonth() + 2).padStart(2, '0');
-      var yyyy2 = start_q2.getFullYear();
+      var date_title_2 = mm + '/' + dd + '/' + yyyy;
+      if (mm === '12'){
+        var dd2 = String(start_q2.getDate()-1).padStart(2, '0');
+        var mm2 = "01";
+        var yyyy2 = start_q2.getFullYear()+1;
+    } else if (mm === '1'){
+        var dd2 = String(start_q2.getDate()-3).padStart(2, '0');
+        var mm2 = String(start_q2.getMonth() + 2).padStart(2, '0');
+        var yyyy2 = start_q2.getFullYear();
+    } else {
+        var dd2 = String(start_q2.getDate()-1).padStart(2, '0');
+        var mm2 = String(start_q2.getMonth() + 2).padStart(2, '0');
+        var yyyy2 = start_q2.getFullYear();
+    }
       var month_q2 = yyyy2 + '-' + mm2 + '-' + dd2;
       var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q2}&end_date=${month_q2}&api_key=${apiKey}`;
   
@@ -92,7 +132,7 @@ function getdata(stock){
             color: "#17BECF"}};
         var data4 = [trace4];
         var layout = {
-          title: `${stock} Stock Price after Q2 Earnings Report`,
+          title: `${stock} Stock Price after ${date_title_2} Earnings Report`,
           xaxis: {
             range: [startDate, endDate],
             type: "date"},
@@ -109,9 +149,21 @@ function getdata(stock){
      var mm = String(start_q3.getMonth() + 1).padStart(2, '0');
      var yyyy = start_q3.getFullYear();
      var date_q3 = yyyy + '-' + mm + '-' + dd;
-     var dd2 = String(start_q3.getDate()-3).padStart(2, '0');
-     var mm2 = String(start_q3.getMonth() + 2).padStart(2, '0');
-     var yyyy2 = start_q3.getFullYear();
+     var date_title_3 = mm + '/' + dd + '/' + yyyy;
+     console.log(mm)
+     if (mm === '12'){
+        var dd2 = String(start_q3.getDate()-1).padStart(2, '0');
+        var mm2 = "01";
+        var yyyy2 = start_q3.getFullYear()+1;
+    } else if (mm === '1'){
+        var dd2 = String(start_q3.getDate()-3).padStart(2, '0');
+        var mm2 = String(start_q3.getMonth() + 2).padStart(2, '0');
+        var yyyy2 = start_q3.getFullYear();
+    } else {
+        var dd2 = String(start_q3.getDate()-1).padStart(2, '0');
+        var mm2 = String(start_q3.getMonth() + 2).padStart(2, '0');
+        var yyyy2 = start_q3.getFullYear();
+    }
      var month_q3 = yyyy2 + '-' + mm2 + '-' + dd2;
      var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q3}&end_date=${month_q3}&api_key=${apiKey}`;
  
@@ -132,7 +184,7 @@ function getdata(stock){
            color: "#17BECF"}};
        var data4 = [trace4];
        var layout = {
-         title: `${stock} Stock Price after Q3 Earnings Report`,
+         title: `${stock} Stock Price after ${date_title_3} Earnings Report`,
          xaxis: {
            range: [startDate, endDate],
            type: "date"},
@@ -148,9 +200,20 @@ function getdata(stock){
      var mm = String(start_q4.getMonth() + 1).padStart(2, '0');
      var yyyy = start_q4.getFullYear();
      var date_q4 = yyyy + '-' + mm + '-' + dd;
-     var dd2 = String(start_q4.getDate()-3).padStart(2, '0');
-     var mm2 = String(start_q4.getMonth() + 2).padStart(2, '0');
-     var yyyy2 = start_q4.getFullYear();
+     var date_title_4 = mm + '/' + dd + '/' + yyyy;
+     if (mm === '12'){
+        var dd2 = String(start_q4.getDate()-1).padStart(2, '0');
+        var mm2 = "01";
+        var yyyy2 = start_q4.getFullYear()+1;
+    } else if (mm === '1'){
+        var dd2 = String(start_q4.getDate()-3).padStart(2, '0');
+        var mm2 = String(start_q4.getMonth() + 2).padStart(2, '0');
+        var yyyy2 = start_q4.getFullYear();
+    } else {
+        var dd2 = String(start_q4.getDate()-1).padStart(2, '0');
+        var mm2 = String(start_q4.getMonth() + 2).padStart(2, '0');
+        var yyyy2 = start_q4.getFullYear();
+    }
      var month_q4 = yyyy2 + '-' + mm2 + '-' + dd2;
      var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q4}&end_date=${month_q4}&api_key=${apiKey}`;
  
@@ -171,7 +234,7 @@ function getdata(stock){
            color: "#17BECF"}};
        var data4 = [trace4];
        var layout = {
-         title: `${stock} Stock Price after Q4 Earnings Report`,
+         title: `${stock} Stock Price after ${date_title_4} Earnings Report`,
          xaxis: {
            range: [startDate, endDate],
            type: "date"},
