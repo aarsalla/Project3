@@ -27,6 +27,11 @@ data_base_table = Base.classes.earnings
 @app.route("/")
 def home():
     return render_template("index.html")
+
+@app.route("/table")
+def table():
+    return render_template("index0.html")
+
 @app.route("/x")
 def samples():
    
