@@ -83,5 +83,16 @@ def list_dict():
 
     return(jsonify(list_dict))
 
+@app.route("/names")
+def names():
+    """Return a list of sample names."""
+
+    # Use Pandas to perform the sql query
+    stmt = db.session.query(data_base_table).statement
+    df = pd.read_sql_query(stmt, db.session.bind)
+
+    # Return a list of the column names (sample names)
+    return jsonify(list(df.columns)[2:])
+
 if __name__ == "__main__":
     app.run()
