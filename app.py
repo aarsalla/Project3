@@ -28,10 +28,6 @@ data_base_table = Base.classes.earnings
 def home():
     return render_template("index.html")
 
-@app.route("/data")
-def data_visuals():
-    return render_template("data.html")
-
 @app.route("/map")
 def map_visual():
     return render_template("map.html")
@@ -39,6 +35,10 @@ def map_visual():
 @app.route("/charts")
 def chart_visual():
     return render_template("charts.html")
+    
+@app.route("/data")
+def table():
+    return render_template("data.html")
 
 @app.route("/x")
 def samples():
