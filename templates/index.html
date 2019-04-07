@@ -5,117 +5,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Introduction Page</title>
+  <title>Introduction to Stock Earnings Analysis</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
 </head>
 
 <body>
-    <div class="wrapper">
+  <div class="wrapper">
 
-        <!-- Start of navigation -->
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-equalizer"> | <br> </span>{INSERT TITLE}
-              </a>
-            </div>
+      <!-- Start of navigation -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-equalizer"> | <br> </span>Home
+            </a>
+            <!-- <div class="dropdown">
+              <button class="dropbtn">Explore</button>
+              <div class="dropdown-content a">
+                <li><a href="#">Map of Featured Firms</a></li>
+                <li><a href="#">Earnings Reports Charts</a></li>
+                <li><a href="#">Raw Data</a></li>
+              </div>
+            </div> -->
           </div>
-        </nav>
-        <!-- End of navigation -->
+        </div>
+      </nav>
+      <!-- End of navigation -->
 
-
-      <!-- Start of banner -->
+       <!-- Start of banner 1-->
       <div class="hero text-left">
           <h1>{INSERT TITLE}</h1>
           <p>{INSERT SUB-HEADING}</p>
       </div>
-      <!-- End of banner -->
-
-      <!-- Start of container for form submission-->
-      <div class="container-fluid">
+      <!-- End of banner 1-->  
+         
+      <!-- Start container 1-->
+      <div class="container">
         <section class="row">
           <div class="col-md-8">
-            <h1 class="">Select Stock</h1>
-              <form class="form-inline">
-                <div class="form-group">
-                  <label for="stockInput"> Stock | </label>
-                  <input type="text" class="form-control" id="stockInput" placeholder="Enter a stock">
-                </div>
-                  <button id="submit" type="submit" class="btn btn-default">Plot Stock</button>
-              </form>
+            <h1 class="">XXXX</h1>
           </div>
       </div>
-      <!-- End of container for form submission-->
+      <!-- End container 1-->
 
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-
-      <!-- Start of container for closing prices and earnings/share by data container-->
-      <div class="container-fluid">
-        <div class="col-md-6">      
-            <h1 class="text-center">Closing Prices</h1>  
-          <div id="plot">
-          </div>
-          <p></p>
-          <p></p>
-        </div>
-
-        <div class="col-md-6">
-            <h1 class="text-center">Earning Per Share by Date</h1>  
-          <div id="plot2">
-          </div>
-          <p></p>
-          <p></p>
-        </div>
+      <!-- Start of banner 2-->
+      <div class="hero1 hero p text-right">
+        <h1>{INSERT TITLE}</h1>
+        <p>{INSERT SUB-HEADING}</p>
       </div>
-       <!-- Start of container for closing prices and earnings/share by data container-->
+      <!-- End of banner 2-->     
 
-      <hr>
-
-      <!-- Start of container for analysis by period -->
+      <!-- Start container 2-->
       <div class="container">
-            <div class="col-xs-12">
-              <h2 class="text-center">Stock Earnings Percent Change Vs. Forecasted: April 2018 - Present</h1>
-            </div>
-            <div class="col-md-6">
-              <h2 class="text-center">Period 1</h2>
-              <div id="graph0"></div>
-              <div class="text-center" id="text0"></div>
-              <hr class="visible-xs visible-sm">
-            </div>
-            <div class="col-md-6">
-                <h2 class="text-center">Period 2</h2>
-                <div id="graph1"></div>
-                <div class="text-center" id="text1"></div>
-                <hr class="visible-xs visible-sm">
-            </div>
-            <div class="col-md-6">
-                <h2 class="text-center">Period 3</h2>
-                <div id="graph2"></div>
-                <div class="text-center" id="text2"></div>
-                <hr class="visible-xs visible-sm">
-            </div>
-            <div class="col-md-6">
-                <h2 class="text-center">Period 4</h2>
-                <div id="graph3"></div>
-                <div class="text-center" id="text3"></div>
-                <hr class="visible-xs visible-sm">
-            </div>
-      <!-- End of container for analysis by period --> 
+        <section class="row">
+          <div class="col-md-8">
+            <h1 class="">XXXX</h1>
+          </div>
+      </div>
+      <!-- End container 2-->
 
-    </div>
+      <!-- Start of banner 3-->
+      <div class="hero2 hero p text-left">
+        <h1>{INSERT TITLE}</h1>
+        <p>{INSERT SUB-HEADING}</p>
+      </div>
+       <!-- End of banner 3-->
 
-      <footer class="footer">
-          <span class="bottom">{INSERT TEXT}</span>
-      </footer>
+      <!-- Start container 3-->
+      <div class="container">
+        <section class="row">
+          <div class="col-md-8">
+            <h1 class="">XXXX</h1>
+          </div>
+      </div>
+      <!-- End container 3-->
 
+            <footer class="footer">
+                <span class="bottom">{INSERT TEXT}</span>
+            </footer>
+        </div> 
+        
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="/static/js/plot.js"></script>
 </body>
 
 </html>
