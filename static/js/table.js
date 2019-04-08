@@ -1,3 +1,4 @@
+$(document).ready( function () {
 d3.json("/dict").then((data)=>{
 
 
@@ -18,10 +19,9 @@ d3.json("/dict").then((data)=>{
         tr.append('td').text(surprise[i])
        
     }
-
+    
+    $('#myTable').DataTable();
 
 })
 
-$(document).ready( function () {
-    $('#myTable').DataTable();
 });
