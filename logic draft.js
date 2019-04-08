@@ -111,7 +111,7 @@ d3.csv("DowJonesPlus3_Coordinations.csv").then(function(csvData) {
 
       var lastDate_opening_stock_price = Number(openingPrices[0]);
       var four_days_prior_opening_stock_price = Number(openingPrices[(openingPrices.length-1)]);
-      stock_price_difference = lastDate_opening_stock_price - four_days_prior_opening_stock_price;
+      var stock_price_difference = lastDate_opening_stock_price - four_days_prior_opening_stock_price;
 
       console.log(response.dataset.name)
       console.log(endDate)
@@ -120,7 +120,6 @@ d3.csv("DowJonesPlus3_Coordinations.csv").then(function(csvData) {
       console.log(lastDate_opening_stock_price)
       console.log(four_days_prior_opening_stock_price)
       console.log(stock_price_difference)
-      console.log(data.name)
 
 
     });
