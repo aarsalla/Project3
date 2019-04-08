@@ -21,10 +21,12 @@ function getdata(stock){
     var forecasted = filter_data.map(d=>+d['Forecasted Earnings Per Share']);
     var surprise = filter_data.map(d=>d['% Surprise']);
       //stock quartly graphs
-   var apiKey = "REHgZFPuj_3cxTxuwvsn";
+   
    console.log(ReportedDate)
    var i
    for (i=0; i<4; i++){
+    var clear = d3.select(`#text${i}`)
+    clear.html("")
        d3.select(`#text${i}`).append("h3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[i]}%`)
      //  d3.select("#surprise1").text(`Earnings Percent Change Vs. Forecasted: ${surprise[1]}%`)
      //  d3.select("#surprise2").text(`Earnings Percent Change Vs. Forecasted: ${surprise[2]}%`)
@@ -45,12 +47,12 @@ function getdata(stock){
     var yyyy = start_q1.getFullYear();
     var date_q1 = yyyy + '-' + mm + '-' + dd;
     var date_title_1 = mm + '/' + dd + '/' + yyyy;
-    
+   
     if (mm === '12'){
         var dd2 = String(start_q1.getDate()-1).padStart(2, '0');
         var mm2 = "01";
         var yyyy2 = start_q1.getFullYear()+1;
-    } else if (mm === '1'){
+    } else if (mm === '01'){
         var dd2 = String(start_q1.getDate()-3).padStart(2, '0');
         var mm2 = String(start_q1.getMonth() + 2).padStart(2, '0');
         var yyyy2 = start_q1.getFullYear();
@@ -60,7 +62,7 @@ function getdata(stock){
         var yyyy2 = start_q1.getFullYear();
     }
     var month_q1 = yyyy2 + '-' + mm2 + '-' + dd2;
-   
+    var apiKey = "REHgZFPuj_3cxTxuwvsn";
     console.log(surprise[0])
     var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q1}&end_date=${month_q1}&api_key=${apiKey}`;
 
@@ -103,7 +105,7 @@ function getdata(stock){
         var dd2 = String(start_q2.getDate()-1).padStart(2, '0');
         var mm2 = "01";
         var yyyy2 = start_q2.getFullYear()+1;
-    } else if (mm === '1'){
+    } else if (mm === '01'){
         var dd2 = String(start_q2.getDate()-3).padStart(2, '0');
         var mm2 = String(start_q2.getMonth() + 2).padStart(2, '0');
         var yyyy2 = start_q2.getFullYear();
@@ -141,7 +143,7 @@ function getdata(stock){
             type: "linear"}};
         Plotly.newPlot("graph1", data4, layout);
       })
-
+ 
      //Q3
      var start_q3 = new Date(ReportedDate[2])
      var apiKey = "REHgZFPuj_3cxTxuwvsn";
@@ -155,7 +157,7 @@ function getdata(stock){
         var dd2 = String(start_q3.getDate()-1).padStart(2, '0');
         var mm2 = "01";
         var yyyy2 = start_q3.getFullYear()+1;
-    } else if (mm === '1'){
+    } else if (mm === '01'){
         var dd2 = String(start_q3.getDate()-3).padStart(2, '0');
         var mm2 = String(start_q3.getMonth() + 2).padStart(2, '0');
         var yyyy2 = start_q3.getFullYear();
@@ -205,7 +207,7 @@ function getdata(stock){
         var dd2 = String(start_q4.getDate()-1).padStart(2, '0');
         var mm2 = "01";
         var yyyy2 = start_q4.getFullYear()+1;
-    } else if (mm === '1'){
+    } else if (mm === '01'){
         var dd2 = String(start_q4.getDate()-3).padStart(2, '0');
         var mm2 = String(start_q4.getMonth() + 2).padStart(2, '0');
         var yyyy2 = start_q4.getFullYear();
@@ -243,7 +245,6 @@ function getdata(stock){
            type: "linear"}};
        Plotly.newPlot("graph3", data4, layout);
      })
-    
 
    //end stock quartly graphs
 
@@ -295,6 +296,7 @@ function handleSubmit() {
   console.log(stock);
 
   // clear the input value
+  
   d3.select("#stockInput").node().value = "";
 
   // Build the plot with the new stock
@@ -359,3 +361,22 @@ d3.select("#submit").on("click", handleSubmit);
 
     
   
+//function switchdata(dataset){
+  
+ // switch (dataset) {
+// case ReportedDate[3]:
+
+
+ //break;
+ //case "07/26/2018":
+
+ //break;
+ //case ReportedDate[1]:
+
+
+// break;
+// default:
+
+
+ //break;
+//}}//bracket for switchdata function
