@@ -11,8 +11,6 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(myMap);
 
-markers = [];
-
 var greenIcon = new L.Icon({
   iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -40,14 +38,13 @@ function stockColor(stock_price) {
   }
 }
 
+d3.csv("DowJonesPlus3_Coordinations.csv").then(function(csvData) {
 
-d3.csv("DowJonesPlus3_Coordinations.csv", function(error, csvData) {
-  if (error) console.log(error);
+  for(i = 0; i < csvData.length; i++)
+  {
+  //csvData.forEach(function(data){
+    data = csvData[i];
 
-  //console.log(csvData);
-
-  csvData.forEach(function(data){
-    console.log(data)
     var marker = new L.Marker([+data.Latitude, +data.Longitude], {icon: greenIcon});
 
     var today = new Date()
@@ -63,37 +60,30 @@ d3.csv("DowJonesPlus3_Coordinations.csv", function(error, csvData) {
     var yyyy2 = thirty_days_prior.getFullYear();
     var thirty_days_prior_API = yyyy2 + '-' + mm2 + '-' + dd2;
     var thirty_days_prior_JS = mm2 + '/' + dd2 + '/' + yyyy2;
-
-    console.log(lastDate_API)
-    console.log(thirty_days_prior_API)
-
     var stock_ticker = data["Stock Ticker"];
-    
-    console.log(stock_ticker)
 
     var apiKey = "REHgZFPuj_3cxTxuwvsn";
     var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock_ticker}?start_date=${thirty_days_prior_API}&end_date=${lastDate_API}&api_key=${apiKey}`;
-    
-    console.log(url)
 
-    d3.json(url).then(function(jsonData){
-      console.log(jsonData)
+    d3.json("https://www.quandl.com/api/v3/datasets/EOD/MMM?start_date=2019-03-07&end_date=2019-04-07&api_key=REHgZFPuj_3cxTxuwvsn")
+    .then(function(data) {
+
+      console.log("DANIEL -- DO YOUR THING HERE");
+      console.log(data); // work with this as you see fit
+      console.log(data.dataset.data); // work with this as you see fit
 
     });
-
-    //console.log(dates)
-    //console.log(closingPrices)
 
     marker.desc = data.Name;
     myMap.addLayer(marker);
     oms.addMarker(marker);
 
-  });
+  }
 
   /*
   var apiKey = "REHgZFPuj_3cxTxuwvsn";
   var url2 = `https://www.quandl.com/api/v3/datasets/EOD/FB?start_date=2019-03-06&end_date=2019-04-06&api_key=REHgZFPuj_3cxTxuwvsn`;
-  
+
   console.log(url2)
   d3.json(url2).then;
 
@@ -117,4 +107,3 @@ oms.addListener('click', function(marker) {
   popup.setLatLng(marker.getLatLng());
   myMap.openPopup(popup);
 });
-

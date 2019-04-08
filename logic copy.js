@@ -1,68 +1,58 @@
-// Create a map object
-var myMap = L.map("map", {
-  center: [37.09, -95.71],
-  zoom: 5
-});
+d3.json("https://gbfs.citibikenyc.com/gbfs/en/station_information.json", createMarkers);
 
-L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 18,
-  id: "mapbox.streets",
-  accessToken: API_KEY
-}).addTo(myMap);
+function createMarkers(response) {
 
-markers = [];
+  // Pull the "stations" property off of response.data
+  var stations = response.data.stations;
 
-var greenIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 40],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+  // Initialize an array to hold bike markers
+  var bikeMarkers = [];
 
-var redIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 40],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+  // Loop through the stations array
+  for (var index = 0; index < stations.length; index++) {
+    var station = stations[index];
 
-function stockColor(stock_price) {
-  switch (true) {
-  case (0 < stock_price):
-    return greenIcon
-  defualt:
-    return redIcon;
+    // For each station, create a marker and bind a popup with the station's name
+    var bikeMarker = new L.Marker([station.lat, station.lon])
+      .bindPopup("<h3>" + station.name + "<h3><h3>Capacity: " + station.capacity + "<h3>");
+
+    // Add the marker to the bikeMarkers array
+    bikeMarkers.push(bikeMarker);
   }
+
+  // Create a layer group made from the bike markers array, pass it into the createMap function
+  createMap(L.layerGroup(bikeMarkers));
 }
 
-d3.csv("DowJonesPlus3_Coordinations.csv", function(error, csvData) {
-  if (error) console.log(error);
+function createMap(bikeStations) {
 
-  console.log(csvData);
-
-  csvData.forEach(function(data){
-    console.log(data)
-    var marker = new L.Marker([+data.Latitude, +data.Longitude], {icon: greenIcon});
-    marker.desc = data.Stock;
-    myMap.addLayer(marker);
-    oms.addMarker(marker);
-
+  // Create the tile layer that will be the background of our map
+  var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+    attribution: "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://mapbox.com\">Mapbox</a>",
+    maxZoom: 18,
+    id: "mapbox.light",
+    accessToken: API_KEY
   });
 
-});
+  // Create a baseMaps object to hold the lightmap layer
+  var baseMaps = {
+    "Light Map": lightmap
+  };
 
-var oms = new OverlappingMarkerSpiderfier(myMap, {keepSpiderfied: true});
+  // Create an overlayMaps object to hold the bikeStations layer
+  var overlayMaps = {
+    "Bike Stations": bikeStations
+  };
 
-var popup = new L.Popup();
+  // Create the map object with options
+  var map = L.map("map-id", {
+    center: [40.73, -74.0059],
+    zoom: 12,
+    layers: [lightmap, bikeStations]
+  });
 
-oms.addListener('click', function(marker) {
-  popup.setContent(marker.desc);
-  popup.setLatLng(marker.getLatLng());
-  myMap.openPopup(popup);
-});
-
+  // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
+  L.control.layers(baseMaps, overlayMaps, {
+    collapsed: false
+  }).addTo(map);
+}

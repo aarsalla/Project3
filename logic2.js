@@ -11,38 +11,41 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(myMap);
 
-// Define a markerSize function that will give each city a different radius based on its population
-
-// Each city object contains the city's name, location and population
 var corporations = [
   {
     name: "Verizon",
+    ticker: "VZ",
     location: [40.7546836, -73.9847556],
     stock: 58.99
   },
   {
     name: "JPMorgan Chase",
+    ticker: "JPM",
     location: [40.75582, -73.97569],
     stock: 105.56
   },
   {
     name: "Travelers Companies Inc.",
+    ticker: "TRV",
     location: [40.7542603, -73.973587],
     stock: 136.52
   },
   {
     name: "Pfizer",
+    ticker: "PFE",
     location: [40.7502192, -73.9726673],
     stock: 42.74
   }
 ];
 
-/*
-for (var i = 0; i < corporations.length; i++) {
-  L.marker(corporations[i].location, {
-  }).bindPopup("<h1>" + corporations[i].name + "</h1> <hr> <h3>Stock Price : $" + corporations[i].stock + "</h3>").addTo(myMap);
-};
-*/
+var greenIcon = new L.Icon({
+  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 40],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
 var oms = new OverlappingMarkerSpiderfier(myMap, {keepSpiderfied: true});
 
@@ -53,38 +56,51 @@ oms.addListener('click', function(marker) {
   popup.setLatLng(marker.getLatLng());
   myMap.openPopup(popup);
 });
-/*
-oms.addListener('spiderfy', function(markers) {
-  myMap.closePopup();
+
+
+d3.json("https://www.quandl.com/api/v3/datasets/EOD/VZ?start_date=2019-03-06&end_date=2019-04-06&api_key=REHgZFPuj_3cxTxuwvsn", function(error, data) {
+  console.log(data.dataset.data)
 });
-*/
 
 /*
-for (var i = 0; i < window.mapData.length; i ++) {
-  var datum = window.mapData[i];
-  var loc = new L.LatLng(datum.lat, datum.lon);
-  var marker = new L.Marker(loc);
-  marker.desc = datum.d;
-  map.addLayer(marker);
-  oms.addMarker(marker);  // <-- here
-}
-*/
-
 for (var i = 0; i < corporations.length; i++) {
-  var marker = new L.Marker(corporations[i].location);
+  var marker = new L.Marker(corporations[i].location, {icon: greenIcon});
+
+  var today = new Date()
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+  var lastDate_API = yyyy + '-' + mm + '-' + dd;
+  var lastDate_JS = mm + '/' + dd + '/' + yyyy;
+
+  var thirty_days_prior = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  var dd2 = String(thirty_days_prior.getDate()-1).padStart(2, '0');
+  var mm2 = String(thirty_days_prior.getMonth() + 1).padStart(2, '0');
+  var yyyy2 = thirty_days_prior.getFullYear();
+  var thirty_days_prior_API = yyyy2 + '-' + mm2 + '-' + dd2;
+  var thirty_days_prior_JS = mm2 + '/' + dd2 + '/' + yyyy2;
+
+  console.log(lastDate_API)
+  console.log(thirty_days_prior_API)
+
+  var stock_ticker = corporations[i].ticker;
+  
+  console.log(stock_ticker)
+
+  var apiKey = "REHgZFPuj_3cxTxuwvsn";
+  var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock_ticker}?start_date=${thirty_days_prior_API}&end_date=${lastDate_API}&api_key=${apiKey}`;
+  
+  console.log(url)
+
+  d3.json(url, function(error, data){
+    console.log(data)
+  });
+
   marker.desc = corporations[i].name;
   myMap.addLayer(marker);
   oms.addMarker(marker);
 
 };
 
-options = {
-  icon: 'leaf',
-  iconShape: 'marker'
-};
-L.marker([43.7502192, -75.9726673], {
-  icon: L.BeautifyIcon.(options),
-  draggable: true
-}).addTo(myMap).bindPopup("popup").bindPopup("This is a BeautifyMarker");
-
-
+// var marker = new L.Marker([+data.Latitude, +data.Longitude], {icon: greenIcon});
+*/
