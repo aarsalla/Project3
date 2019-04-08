@@ -20,4 +20,8 @@ d3.json("/dict").then((data)=>{
     }
 
 
-}   )
+})
+
+$(document).ready( function () {
+    $('#myTable').DataTable();
+});

@@ -56,6 +56,11 @@ body {
 
 .dropdown:hover .dropbtn {background-color: grey;}
 
+/* Table properties */
+
+.table_text{
+  color: #041c2b;
+}
 
 /* The footer is positioned at the bottom of the page */
 .footer {
