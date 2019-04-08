@@ -50,8 +50,6 @@ function stockColor(stock_price) {
   }
 }
 
-
-
 d3.csv("DowJonesPlus3_Coordinations.csv").then(function(csvData) {
 
   for(i = 0; i < csvData.length; i++)
@@ -93,8 +91,6 @@ d3.csv("DowJonesPlus3_Coordinations.csv").then(function(csvData) {
 
     //console.log(url)
 
-    var stock_price_difference;
-
     d3.json(url)
     .then(function(response) {
 
@@ -116,7 +112,7 @@ d3.csv("DowJonesPlus3_Coordinations.csv").then(function(csvData) {
       var lastDate_opening_stock_price = Number(openingPrices[0]);
       var four_days_prior_opening_stock_price = Number(openingPrices[(openingPrices.length-1)]);
       stock_price_difference = lastDate_opening_stock_price - four_days_prior_opening_stock_price;
-      
+
       console.log(response.dataset.name)
       console.log(endDate)
       console.log(startDate)
@@ -124,13 +120,13 @@ d3.csv("DowJonesPlus3_Coordinations.csv").then(function(csvData) {
       console.log(lastDate_opening_stock_price)
       console.log(four_days_prior_opening_stock_price)
       console.log(stock_price_difference)
+      console.log(data.name)
 
 
     });
 
-    var stock_price = -0.25;
+    stock_price = -0.25;
     var marker = new L.Marker([+data.Latitude, +data.Longitude], {icon: stockColor(stock_price)});
-    console.log(stock_price_difference)
 
     marker.desc = data.Name;
     myMap.addLayer(marker);
