@@ -25,6 +25,8 @@ function getdata(stock){
    console.log(ReportedDate)
    var i
    for (i=0; i<4; i++){
+     var clear = d3.select(`#text${i}`).value
+     clear.html("")
        d3.select(`#text${i}`).append("h3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[i]}%`)
      //  d3.select("#surprise1").text(`Earnings Percent Change Vs. Forecasted: ${surprise[1]}%`)
      //  d3.select("#surprise2").text(`Earnings Percent Change Vs. Forecasted: ${surprise[2]}%`)
@@ -50,7 +52,7 @@ function getdata(stock){
         var dd2 = String(start_q1.getDate()-1).padStart(2, '0');
         var mm2 = "01";
         var yyyy2 = start_q1.getFullYear()+1;
-    } else if (mm === '1'){
+    } else if (mm === '01'){
         var dd2 = String(start_q1.getDate()-3).padStart(2, '0');
         var mm2 = String(start_q1.getMonth() + 2).padStart(2, '0');
         var yyyy2 = start_q1.getFullYear();
@@ -103,7 +105,7 @@ function getdata(stock){
         var dd2 = String(start_q2.getDate()-1).padStart(2, '0');
         var mm2 = "01";
         var yyyy2 = start_q2.getFullYear()+1;
-    } else if (mm === '1'){
+    } else if (mm === '01'){
         var dd2 = String(start_q2.getDate()-3).padStart(2, '0');
         var mm2 = String(start_q2.getMonth() + 2).padStart(2, '0');
         var yyyy2 = start_q2.getFullYear();
@@ -155,7 +157,7 @@ function getdata(stock){
         var dd2 = String(start_q3.getDate()-1).padStart(2, '0');
         var mm2 = "01";
         var yyyy2 = start_q3.getFullYear()+1;
-    } else if (mm === '1'){
+    } else if (mm === '01'){
         var dd2 = String(start_q3.getDate()-3).padStart(2, '0');
         var mm2 = String(start_q3.getMonth() + 2).padStart(2, '0');
         var yyyy2 = start_q3.getFullYear();
@@ -205,7 +207,7 @@ function getdata(stock){
         var dd2 = String(start_q4.getDate()-1).padStart(2, '0');
         var mm2 = "01";
         var yyyy2 = start_q4.getFullYear()+1;
-    } else if (mm === '1'){
+    } else if (mm === '01'){
         var dd2 = String(start_q4.getDate()-3).padStart(2, '0');
         var mm2 = String(start_q4.getMonth() + 2).padStart(2, '0');
         var yyyy2 = start_q4.getFullYear();
