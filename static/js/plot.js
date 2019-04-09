@@ -288,21 +288,21 @@ function unpack(rows, index) {
 }
 
 // Submit Button handler
-function handleSubmit(stock) {
+//function handleSubmit() {
   // Prevent the page from refreshing
-  d3.event.preventDefault();
+  //d3.event.preventDefault();
 
   // Select the input value from the form
-  // var stock = d3.select("#selDataset").node().value;
-  console.log(stock);
+  //var stock = d3.select("#stockInput").node().value;
+  //console.log(stock);
 
   // clear the input value
-  d3.select("#stockInput").node().value = "";
+ // d3.select("#stockInput").node().value = "";
 
   // Build the plot with the new stock
-  buildPlot(stock);
-getdata(stock)
-}
+ // buildPlot(stock);
+//getdata(stock)
+//}
 
 function buildPlot(stock) {
     var apiKey = "REHgZFPuj_3cxTxuwvsn";
@@ -356,4 +356,20 @@ function buildPlot(stock) {
         Plotly.newPlot("plot", data, layout);})}
         
     
-d3.select("#submit").on("click", handleSubmit);
+//d3.select("#submit").on("click", handleSubmit);
+
+function getData(dataset) {
+    // Prevent the page from refreshing
+   // d3.event.preventDefault();
+
+    // Select the input value from the form
+   // var stock = d3.select("#stockInput").node().value;
+    console.log(dataset);
+  
+    // clear the input value
+   // d3.select("#stockInput").node().value = "";
+  
+    // Build the plot with the new stock
+    buildPlot(dataset);
+  getdata(dataset)
+}

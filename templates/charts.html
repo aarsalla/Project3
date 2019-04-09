@@ -47,14 +47,45 @@
               <form class="form-inline">
                 <div class="form-group">
                   <label for="stockInput"> Stock | </label>
-                  <select id="selDataset" onchange="handleSubmit(this.value)">
-                    <option value="AMZN">AMZN</option>
-                    <option value="dataset2">07/26/2018</option>
-                    <option value="dataset3">DataSet3</option>
-                  </select>
+                  <select id="selDataset" onchange="getData(this.value)">
+                      <option value="MMM">3M</option>
+                      <option value="AXP">American Express</option>
+                      <option value="AAPL">Apple</option>
+                      <option value="BA">Boeing</option>
+                      <option value="CAT">Caterpillar</option>
+                      <option value="CVX">Chevron</option>
+                      <option value="CSCO">Cisco</option>
+                      <option value="KO">Coca-Cola</option>
+                      <option value="DIS">Disney</option>
+                      <option value="DOW">Dow Chemical</option>
+                      <option value="XOM">Exxon Mobil</option>
+                      <option value="GS">Goldman Sachs</option>
+                      <option value="HD">Home Depot</option>
+                      <option value="IBM">IBM</option>
+                      <option value="INTC">Intel</option>
+                      <option value="JNJ">Johnson & Johnson</option>
+                      <option value="JPM">JPMorgan Chase</option>
+                      <option value="MCD">McDonald's</option>
+                      <option value="MRK">Merck</option>
+                      <option value="MSFT">Microsoft</option>
+                      <option value="NKE">Nike</option>
+                      <option value="PFE">Pfizer</option>
+                      <option value="PG">Procter & Gamble</option>
+                      <option value="TRV">Travelers Companies Inc</option>
+                      <option value="UTX">United Technologies</option>
+                      <option value="UNH">UnitedHealth</option>
+                      <option value="VZ">Verizon</option>
+                      <option value="V">Visa</option>
+                      <option value="WMT">Wal-Mart</option>
+                      <option value="WBA">Walgreen</option>
+                      <option value="AMZN">Amazon</option>
+                      <option value="FB">Facebook</option>
+                      <option value="GOOGL">Google</option>
+                    </select>
+                  </body>
                   <!-- <input type="text" class="form-control" id="stockInput" placeholder="Enter a stock"> -->
                 </div>
-                  <button id="submit" type="submit" class="btn btn-default">Plot Stock</button>
+                  <!-- <button id="submit" type="submit" class="btn btn-default">Plot Stock</button> -->
               </form>
           </div>
       </div>
