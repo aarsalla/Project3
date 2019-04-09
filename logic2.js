@@ -317,13 +317,33 @@ for (var i =0; i <corporations.length; i++){
         case (-1 < stock_price && stock_price < 1):
           return yellowIcon
         case (-1 > stock_price):
-          return redIcon
+          return redMarker
+          //return redIcon
         //defualt:
           //return redIcon;
         }
       };
+
+      var redMarker = L.ExtraMarkers.icon({
+        icon: 'fa-coffee',
+        markerColor: 'red',
+        shape: 'square',
+        prefix: 'fa'
+      });
       
-      var marker = new L.Marker(lat_and_long, {icon: stockColor(stock_price_difference_percentage)});
+      /*
+            // Creates a red marker with the coffee icon
+      var redMarker = L.ExtraMarkers.icon({
+        icon: 'fa-coffee',
+        markerColor: 'red',
+        shape: 'square',
+        prefix: 'fa'
+      });
+
+      L.marker([51.941196,4.512291], {icon: redMarker}).addTo(map);
+      */
+
+      var marker = new L.marker(lat_and_long, {icon: stockColor(stock_price_difference_percentage)});
 
       marker.desc = "<b>" + company_name + "</b><br> Stock Price on " + endDate + ": $" + lastDate_opening_stock_price + 
         "<br> Stock Price on " + startDate + ": $" + thirty_days_prior_opening_stock_price +
