@@ -15,14 +15,20 @@
   <div class="wrapper">
 
       <!-- Start of navigation -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-equalizer"> | <br> </span>Home
-            </a>
-          </div>
+      <div class="topnav" id="myTopnav">
+          <div class="dropdown">
+            <button class="dropbtn">Explore 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/">Home</a>
+              <a href="/charts">Charts</a>
+              <a href="/map">Map</a>
+              <a href="/data">Data</a>
+            </div>
+          </div> 
+          <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
         </div>
-      </nav>
       <!-- End of navigation -->
 
        <!-- Start of banner 1-->
@@ -80,6 +86,16 @@
         
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+  </script>
 </body>
 
 </html>

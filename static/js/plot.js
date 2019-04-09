@@ -25,7 +25,7 @@ function getdata(stock){
    console.log(ReportedDate)
    var i
    for (i=0; i<4; i++){
-     var clear = d3.select(`#text${i}`).value
+     var clear = d3.select(`#text${i}`)
      clear.html("")
        d3.select(`#text${i}`).append("h3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[i]}%`)
      //  d3.select("#surprise1").text(`Earnings Percent Change Vs. Forecasted: ${surprise[1]}%`)
@@ -288,12 +288,12 @@ function unpack(rows, index) {
 }
 
 // Submit Button handler
-function handleSubmit() {
+function handleSubmit(stock) {
   // Prevent the page from refreshing
   d3.event.preventDefault();
 
   // Select the input value from the form
-  var stock = d3.select("#stockInput").node().value;
+  // var stock = d3.select("#selDataset").node().value;
   console.log(stock);
 
   // clear the input value
@@ -357,7 +357,3 @@ function buildPlot(stock) {
         
     
 d3.select("#submit").on("click", handleSubmit);
-
-
-    
-  
