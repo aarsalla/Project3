@@ -1,15 +1,27 @@
 // Create a map object
+/*
 var myMap = L.map("map", {
   center: [37.09, -95.71],
   zoom: 5
 });
+*/
 
+// replace "toner" here with "terrain" or "watercolor"
+var layer = new L.StamenTileLayer("toner");
+var myMap = new L.Map("map", {
+    center: new L.LatLng(37.09, -95.71),
+    zoom: 5
+});
+myMap.addLayer(layer);
+
+/*
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
   maxZoom: 18,
   id: "mapbox.streets",
   accessToken: API_KEY
 }).addTo(myMap);
+*/
 
 // Create an array that contains Lat & Long for thirty Dow Companies + Amazon/FB/Google 
 var corporations = [
