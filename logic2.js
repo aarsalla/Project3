@@ -11,41 +11,316 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(myMap);
 
+// Create an array that contains Lat & Long for thirty Dow Companies + Amazon/FB/Google 
 var corporations = [
   {
-    name: "Verizon",
-    ticker: "VZ",
-    location: [40.7546836, -73.9847556],
-    stock: 58.99
+    name: "3M",
+    ticker: "MMM",
+    location: [44.9507206, -92.9954105]
+  },
+  {
+    name: "American Express",
+    ticker: "AXP",
+    location: [40.7134455, -74.0152721]
+  },
+  {
+    name: "Apple",
+    ticker: "AAPL",
+    location: [37.33182, -122.03118]
+  },
+  {
+    name: "Boeing",
+    ticker: "BA",
+    location: [41.8841353, -87.6388427]
+  },
+  {
+    name: "Caterpillar",
+    ticker: "CAT",
+    location: [40.688667, -89.597323]
+  },
+  {
+    name: "Chevron",
+    ticker: "CVX",
+    location: [37.7587, -121.95905]
+  },
+  {
+    name: "Cisco",
+    ticker: "CSCO",
+    location: [37.4083591, -121.9540715]
+  },
+  {
+    name: "Exxon Mobil",
+    ticker: "XOM",
+    location: [32.89026, -96.94936]
+  },
+  {
+    name: "Goldman Sachs",
+    ticker: "GS",
+    location: [40.714828, -74.0144025]
+  },
+  {
+    name: "Home Depot",
+    ticker: "HD",
+    location: [33.8654896, -84.4814083]
+  },
+  {
+    name: "IBM",
+    ticker: "IBM",
+    location: [41.108918, -73.718875]
+  },
+  {
+    name: "Intel",
+    ticker: "INTC",
+    location: [37.3875909, -121.9637869]
+  },
+  {
+    name: "Johnson & Johnson",
+    ticker: "JNJ",
+    location: [40.4978883, -74.4430916]
   },
   {
     name: "JPMorgan Chase",
     ticker: "JPM",
-    location: [40.75582, -73.97569],
-    stock: 105.56
+    location: [40.75582, -73.97569]
   },
   {
-    name: "Travelers Companies Inc.",
-    ticker: "TRV",
-    location: [40.7542603, -73.973587],
-    stock: 136.52
+    name: "McDonald's",
+    ticker: "MCD",
+    location: [41.8836322, -87.6538373]
+  },
+  {
+    name: "Merck",
+    ticker: "MRK",
+    location: [40.679799, -74.275249]
+  },
+  {
+    name: "Microsoft",
+    ticker: "MSFT",
+    location: [47.63962, -122.13061]
+  },
+  {
+    name: "Nike",
+    ticker: "NKE",
+    location: [45.5077764, -122.8281466]
   },
   {
     name: "Pfizer",
     ticker: "PFE",
-    location: [40.7502192, -73.9726673],
-    stock: 42.74
+    location: [40.7502192, -73.9726673]
+  },
+  {
+    name: "Procter & Gamble",
+    ticker: "PG",
+    location: [39.1032195, -84.5052772]
+  },
+  {
+    name: "Travelers Companies Inc.",
+    ticker: "TRV",
+    location: [40.7542603, -73.973587]
+  },
+  {
+    name: "United Health",
+    ticker: "UNH",
+    location: [44.8973859, -93.4032532]
+  },
+  {
+    name: "United Technologies",
+    ticker: "UTX",
+    location: [41.7122183, -72.8040708]
+  },
+  {
+    name: "Verizon",
+    ticker: "VZ",
+    location: [40.7546836, -73.9847556]
+  },
+  {
+    name: "Visa",
+    ticker: "V",
+    location: [37.5592521, -122.2763649]
+  },
+  {
+    name: "Walmart",
+    ticker: "WMT",
+    location: [36.3648645, -94.2176775]
+  },
+  {
+    name: "Walgreens Boots Alliance",
+    ticker: "WBA",
+    location: [42.1555553, -87.868761]
+  },
+  {
+    name: "Walt Disney",
+    ticker: "DIS",
+    location: [34.1583481, -118.3249137]
+  },
+  {
+    name: "Amazon",
+    ticker: "AMZN",
+    location: [47.6222881, -122.3364939]
+  },
+  {
+    name: "Google",
+    ticker: "GOOGL",
+    location: [37.4219999, -122.0840575]
+  },
+  {
+    name: "Facebook",
+    ticker: "FB",
+    location: [37.48493, -122.1482]
   }
 ];
 
-var greenIcon = new L.Icon({
-  iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 40],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+// Create a function to control the size of the marker, based on stock price fluctuation
+function scalarMultiply(arr, multiplier) {
+  for (var i = 0; i < arr.length; i++)
+  {
+     arr[i] *= multiplier;
+  }
+  return arr;
+};
+
+// Looping through the array to get the URL
+for (var i =0; i <corporations.length; i++){
+  var stock_ticker = corporations[i].ticker;
+
+  //console.log(stock_ticker)
+
+  // Setting up today's date
+  var today = new Date()
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+  var lastDate_API = yyyy + '-' + mm + '-' + dd;
+  var lastDate_JS = mm + '/' + dd + '/' + yyyy;
+
+  // Setting up thirty days prior to today
+  var thirty_days_prior = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  var dd2 = String(thirty_days_prior.getDate()-1).padStart(2, '0');
+  var mm2 = String(thirty_days_prior.getMonth() + 1).padStart(2, '0');
+  var yyyy2 = thirty_days_prior.getFullYear();
+  var thirty_days_prior_API = yyyy2 + '-' + mm2 + '-' + dd2;
+  var thirty_days_prior_JS = mm2 + '/' + dd2 + '/' + yyyy2;
+
+  /*
+  // Setting up four days prior to today
+  var four_days_prior = new Date(Date.now() - 4 * 24 * 60 * 60 * 1000);
+  var dd2 = String(four_days_prior.getDate()-1).padStart(2, '0');
+  var mm2 = String(four_days_prior.getMonth() + 1).padStart(2, '0');
+  var yyyy2 = four_days_prior.getFullYear();
+  var four_days_prior_API = yyyy2 + '-' + mm2 + '-' + dd2;
+  var four_days_prior_JS = mm2 + '/' + dd2 + '/' + yyyy2;
+  */
+
+  //API key for quandl.com - paid by Aimal
+  var apiKey = "REHgZFPuj_3cxTxuwvsn";
+
+  //Building the URL to use for JSON
+  var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock_ticker}?start_date=${thirty_days_prior_API}&end_date=${lastDate_API}&api_key=${apiKey}`;
+
+  //console.log(url)
+
+  //Getting JSON response
+  d3.json(url)
+    .then(function(response) {
+      //console.log("DANIEL -- DO YOUR THING HERE");
+
+      //company_ticker will be used to match JSON data to the array of Lat & Long
+      var company_ticker = response.dataset.dataset_code;
+
+      //endDate is the last date available in the JSON
+      var endDate = response.dataset.end_date;
+
+      //startDate is the first date available in the JSON file returned - which is not always same as Today (Stock Market closed on Weekends / Holidays)
+      var startDate = response.dataset.start_date;
+
+      //This contains all the stock info
+      var stock_information = response.dataset.data; 
+
+      var openingPrices = [];
+
+      //Capturing all the Opening Price returned from JSON
+      for(i = 0; i < stock_information.length; i++){
+        var openingPrice = stock_information[i][1];
+        openingPrices.push(openingPrice);
+      }; 
+
+      //If I don't convert it using Number(), I get NaN as a return
+      var lastDate_opening_stock_price = Number(openingPrices[0]);
+      var thirty_days_prior_opening_stock_price = Number(openingPrices[(openingPrices.length-1)]);
+      var stock_price_difference = lastDate_opening_stock_price - thirty_days_prior_opening_stock_price;
+      var stock_price_difference_percentage = (stock_price_difference/lastDate_opening_stock_price) * 100
+
+      console.log(response.dataset.name)
+      console.log(company_ticker)
+      console.log(endDate)
+      console.log(startDate)
+      console.log(openingPrices)
+      console.log(lastDate_opening_stock_price)
+      console.log(thirty_days_prior_opening_stock_price)
+      console.log(stock_price_difference)
+      
+      //for loop to get the lat & long
+      for (var i =0; i <corporations.length; i++){
+        if (company_ticker == corporations[i].ticker){
+          var lat_and_long = corporations[i].location;
+          var company_name = corporations[i].name;
+        }
+      };
+
+      //Controlling the size of the icon
+      var size_factor = (1 - (stock_price_difference/lastDate_opening_stock_price))*1.5;
+
+      //https://github.com/pointhi/leaflet-color-markers/blob/master/README.md (custom Marker)
+      var greenIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: scalarMultiply([25, 40], size_factor),
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      var yellowIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: scalarMultiply([25, 40], size_factor),
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      
+      var redIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: scalarMultiply([25, 40], size_factor),
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      function stockColor(stock_price) {
+        switch (true) {
+        case (1 < stock_price):
+          return greenIcon
+        case (-1 < stock_price && stock_price < 1):
+          return yellowIcon
+        case (-1 > stock_price):
+          return redIcon
+        //defualt:
+          //return redIcon;
+        }
+      };
+      
+      var marker = new L.Marker(lat_and_long, {icon: stockColor(stock_price_difference_percentage)});
+
+      marker.desc = "<b>" + company_name + "</b><br> Stock Price on " + endDate + ": $" + lastDate_opening_stock_price + 
+        "<br> Stock Price on " + startDate + ": $" + thirty_days_prior_opening_stock_price +
+        "<br> Stock Change over last 30 days: " + stock_price_difference_percentage + "%";
+
+      myMap.addLayer(marker);
+      oms.addMarker(marker);
+  });
+};
 
 var oms = new OverlappingMarkerSpiderfier(myMap, {keepSpiderfied: true});
 
@@ -56,51 +331,3 @@ oms.addListener('click', function(marker) {
   popup.setLatLng(marker.getLatLng());
   myMap.openPopup(popup);
 });
-
-
-d3.json("https://www.quandl.com/api/v3/datasets/EOD/VZ?start_date=2019-03-06&end_date=2019-04-06&api_key=REHgZFPuj_3cxTxuwvsn", function(error, data) {
-  console.log(data.dataset.data)
-});
-
-/*
-for (var i = 0; i < corporations.length; i++) {
-  var marker = new L.Marker(corporations[i].location, {icon: greenIcon});
-
-  var today = new Date()
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0');
-  var yyyy = today.getFullYear();
-  var lastDate_API = yyyy + '-' + mm + '-' + dd;
-  var lastDate_JS = mm + '/' + dd + '/' + yyyy;
-
-  var thirty_days_prior = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-  var dd2 = String(thirty_days_prior.getDate()-1).padStart(2, '0');
-  var mm2 = String(thirty_days_prior.getMonth() + 1).padStart(2, '0');
-  var yyyy2 = thirty_days_prior.getFullYear();
-  var thirty_days_prior_API = yyyy2 + '-' + mm2 + '-' + dd2;
-  var thirty_days_prior_JS = mm2 + '/' + dd2 + '/' + yyyy2;
-
-  console.log(lastDate_API)
-  console.log(thirty_days_prior_API)
-
-  var stock_ticker = corporations[i].ticker;
-  
-  console.log(stock_ticker)
-
-  var apiKey = "REHgZFPuj_3cxTxuwvsn";
-  var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock_ticker}?start_date=${thirty_days_prior_API}&end_date=${lastDate_API}&api_key=${apiKey}`;
-  
-  console.log(url)
-
-  d3.json(url, function(error, data){
-    console.log(data)
-  });
-
-  marker.desc = corporations[i].name;
-  myMap.addLayer(marker);
-  oms.addMarker(marker);
-
-};
-
-// var marker = new L.Marker([+data.Latitude, +data.Longitude], {icon: greenIcon});
-*/
