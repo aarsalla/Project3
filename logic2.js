@@ -156,7 +156,7 @@ var corporations = [
     location: [36.3648645, -94.2176775]
   },
   {
-    name: "Walgreens Boots Alliance",
+    name: "Walgreens",
     ticker: "WBA",
     location: [42.1555553, -87.868761]
   },
