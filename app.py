@@ -40,10 +40,6 @@ def chart_visual():
 def table():
     return render_template("data.html")
 
-@app.route("/test")
-def test_map():
-    return render_template("index0.html")
-
 @app.route("/x")
 def samples():
    

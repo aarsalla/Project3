@@ -14,73 +14,124 @@
 <body>
   <div class="wrapper">
 
-      <!-- Start of navigation -->
-      <div class="topnav" id="myTopnav">
-          <div class="dropdown">
-            <button class="dropbtn">Explore 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="/">Home</a>
-              <a href="/charts">Charts</a>
-              <a href="/map">Map</a>
-              <a href="/data">Data</a>
-            </div>
-          </div> 
-          <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-        </div>
-      <!-- End of navigation -->
+    <!-- Start of Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid navbar-custom">
+  
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="row">
+            <!-- <div class="navbar-header navbar"> -->
+              <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-search" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle Navigation</span>
+                <!-- <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> -->
+              </button>
+  
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right navbar-right-custom">
+                  <span class="caret"></span>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/map">Map</a></li>
+                    <li><a href="/data">Data Table</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          <!-- </div> -->
+        </div><!-- /.container-fluid -->
+      </nav>
+      <!-- End of Navigation -->
 
        <!-- Start of banner 1-->
       <div class="hero text-left">
-          <h1>{INSERT TITLE}</h1>
-          <p>{INSERT SUB-HEADING}</p>
+          <h1>Dow Jones Industrial Index</h1>
+          <p>Forecasted vs. Actual Earnings Analysis</p>
       </div>
       <!-- End of banner 1-->  
          
       <!-- Start container 1-->
       <div class="container">
-        <section class="row">
-          <div class="col-md-8">
-            <h1 class="">XXXX</h1>
+        <div class="col-md-6">      
+          <h1 class="text-left chart_index_margin">Stock Analysis</h1>  
+          <hr>
+          <p></p>
+          <p></p>
+          <P>Explore the stock prices of more than 30 different companies to measure their actual versus forecasted earnings across multiple periods.</P>
+
+        </div>
+
+        <div class="col-md-6">
+            <a href="/charts">
+              <img src="../static/images/chart.jpg" alt="" class="image_chart"/>
+            </a>
           </div>
+          <p></p>
+          <p></p>
+        </div>
       </div>
       <!-- End container 1-->
 
       <!-- Start of banner 2-->
       <div class="hero1 hero p text-right">
-        <h1>{INSERT TITLE}</h1>
-        <p>{INSERT SUB-HEADING}</p>
+        <h1>Map of Companies</h1>
+        <p>Locations and Stats of Featured Companies</p>
       </div>
       <!-- End of banner 2-->     
 
       <!-- Start container 2-->
       <div class="container">
-        <section class="row">
-          <div class="col-md-8">
-            <h1 class="">XXXX</h1>
+          <div class="col-md-6">      
+            <h1 class="text-left map_index_margin">Interactive Company Map</h1>  
+            <hr>
+            <p></p>
+            <p></p>
+            <P>Select a point on the map for detailed location, stock price, and stock change information for each company.</P>
+
           </div>
-      </div>
-      <!-- End container 2-->
+
+          <div class="col-md-6">
+              <a href="/map">
+                <img src="../static/images/map.jpg" alt="" class="image_map"/>
+              </a>
+            </div>
+            <p></p>
+            <p></p>
+          </div>
+        </div>
+        <!-- End container 2-->
 
       <!-- Start of banner 3-->
       <div class="hero2 hero p text-left">
-        <h1>{INSERT TITLE}</h1>
-        <p>{INSERT SUB-HEADING}</p>
+        <h1>Analysis Data</h1>
+        <p>Perform Your Own Analysis</p>
       </div>
        <!-- End of banner 3-->
 
       <!-- Start container 3-->
       <div class="container">
-        <section class="row">
-          <div class="col-md-8">
-            <h1 class="">XXXX</h1>
+          <div class="col-md-6">      
+            <h1 class="text-left data_index_margin">Raw Data</h1>  
+            <hr>
+            <p></p>
+            <p></p>
+            <P>Interact with the data used to perform this analysis to discover your own insights and trends.</P>
+  
           </div>
-      </div>
-      <!-- End container 3-->
+  
+          <div class="col-md-6">
+              <a href="/data">
+                <img src="../static/images/raw_data.JPG" alt="" class="image_data"/>
+              </a>
+            </div>
+            <p></p>
+            <p></p>
+          </div>
+        </div>
+        <!-- End container 3-->
 
             <footer class="footer">
-                <span class="bottom">{INSERT TEXT}</span>
+                <span class="bottom"> Team 6 | Stock Holders</span>
             </footer>
         </div> 
         
