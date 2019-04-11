@@ -11,143 +11,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(myMap);
 
-function chooseColor(stock_price) {
-  switch (true) {
-  case (stock_price < 0):
-    return "#35ef02";
-  case (1 <= mag && mag < 2):
-    return "#cdf44e";
-  case (2 <= mag && mag < 3):
-    return "#fcd664";
-  case (3 <= mag && mag < 4):
-    return "#f49733";
-  case (4 <= mag && mag < 5):
-    return "#ff862a";
-  defualt:
-    return "#c6310f";
-  }
-}
 
-markers = [];
-
-d3.csv("DowJonesPlus3_Coordinations.csv", function(error, csvData) {
-  if (error) console.log(error);
-
-  console.log(csvData);
-/*
-  csvData.forEach(function(data){
-    headquarterMarker = L.marker([data.Latitude, data.Longitude])
-      .bindPopup("<h3>" + data.Name + "</h3>");
-    markers.push(headquarterMarker);
-
-  });
-
-  csvData.forEach(function(data){
-    headquarterCircle = L.circle([data.Latitude, data.Longitude], {
-      stroke: false,
-      fillOpacity: .5,
-      color: "red",
-      fillColor: "red",
-      radius : 50000
-    }).bindPopup("<h3>" + data.Name + "</h3>");
-
-    markers.push(headquarterCircle);
-  });
-  var headquarters = L.layerGroup(markers);
-
-  headquarters.addTo(myMap);
-*/
-  var greenIcon = new L.Icon({
-    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-    iconSize: [25, 40],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-  });
-
-  csvData.forEach(function(data){
-    console.log(data)
-    var marker = new L.Marker([+data.Latitude, +data.Longitude], {icon: greenIcon});
-    marker.desc = data.Name;
-    myMap.addLayer(marker);
-    oms.addMarker(marker);
-
-  });
-
-
-});
-
-var oms = new OverlappingMarkerSpiderfier(myMap, {keepSpiderfied: true});
-
-var popup = new L.Popup();
-
-oms.addListener('click', function(marker) {
-  popup.setContent(marker.desc);
-  popup.setLatLng(marker.getLatLng());
-  myMap.openPopup(popup);
-});
-
-/*
-for (var i = 0; i < corporations.length; i++) {
-  var marker = new L.Marker(corporations[i].location);
-  marker.desc = corporations[i].name;
-  myMap.addLayer(marker);
-  oms.addMarker(marker);
-
-};
-
-var oms = new OverlappingMarkerSpiderfier(myMap, {keepSpiderfied: true});
-
-var popup = new L.Popup();
-
-oms.addListener('click', function(marker) {
-  popup.setContent(marker.desc);
-  popup.setLatLng(marker.getLatLng());
-  myMap.openPopup(popup);
-});
-
-
-
-/*
-d3.json(url, function(response) {
-
-  // Create a new marker cluster group
-  var markers = L.markerClusterGroup();
-
-  // Loop through data
-  for (var i = 0; i < response.length; i++) {
-
-    // Set the data location property to a variable
-    var location = response[i].location;
-
-    // Check for location property
-    if (location) {
-
-      // Add a new marker to the cluster group and bind a pop-up
-      markers.addLayer(L.marker([location.coordinates[1], location.coordinates[0]])
-        .bindPopup(response[i].descriptor + "<hr>" + response[i].cross_street_1 + "<br>" + response[i].cross_street_2));
-    }
-
-  }
-
-  // Add our marker cluster layer to the map
-  myMap.addLayer(markers);
-
-});
-*/
-
-/*
-
-// Define a markerSize function that will give each city a different radius based on its population
-/*
-function markerSize(stockprice) {
-  console.log(Math.log(stockprice));
-  return Math.log(stockprice) * 5000;
-};
-*/
-
-/*
 // Each city object contains the city's name, location and population
 var corporations = [
   {
@@ -166,7 +30,16 @@ var corporations = [
     stock: 166.69
   },
 ];
-*/
+
+var redMarker = L.ExtraMarkers.icon({
+  icon: 'fa-coffee',
+  markerColor: 'red',
+  shape: 'square',
+  prefix: 'fa'
+});
+
+L.marker([37.484116, -122.148244], {icon: redMarker}).addTo(myMap);
+
 
 
 /*

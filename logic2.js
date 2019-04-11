@@ -1,27 +1,27 @@
 // Create a map object
-/*
 var myMap = L.map("map", {
   center: [37.09, -95.71],
-  zoom: 5
+  zoom: 4
 });
-*/
 
-// replace "toner" here with "terrain" or "watercolor"
-var layer = new L.StamenTileLayer("toner");
-var myMap = new L.Map("map", {
-    center: new L.LatLng(37.09, -95.71),
-    zoom: 5
-});
-myMap.addLayer(layer);
-
-/*
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
   maxZoom: 18,
   id: "mapbox.streets",
   accessToken: API_KEY
 }).addTo(myMap);
+
+/*
+// This would replace mapbox. Replace "toner" here with "terrain" or "watercolor" for other options.
+var layer = new L.StamenTileLayer("toner");
+var myMap = new L.Map("map", {
+    center: new L.LatLng(37.09, -95.71),
+    zoom: 5
+});
+
+myMap.addLayer(layer);
 */
+
 
 // Create an array that contains Lat & Long for thirty Dow Companies + Amazon/FB/Google 
 var corporations = [
@@ -182,6 +182,7 @@ var corporations = [
   }
 ];
 
+/*
 // Create a function to control the size of the marker, based on stock price fluctuation
 function scalarMultiply(arr, multiplier) {
   for (var i = 0; i < arr.length; i++)
@@ -190,6 +191,7 @@ function scalarMultiply(arr, multiplier) {
   }
   return arr;
 };
+*/
 
 // Looping through the array to get the URL
 for (var i =0; i <corporations.length; i++){
@@ -214,7 +216,7 @@ for (var i =0; i <corporations.length; i++){
   var thirty_days_prior_JS = mm2 + '/' + dd2 + '/' + yyyy2;
 
   /*
-  // Setting up four days prior to today
+  // Setting up four days prior to today 
   var four_days_prior = new Date(Date.now() - 4 * 24 * 60 * 60 * 1000);
   var dd2 = String(four_days_prior.getDate()-1).padStart(2, '0');
   var mm2 = String(four_days_prior.getMonth() + 1).padStart(2, '0');
@@ -231,7 +233,7 @@ for (var i =0; i <corporations.length; i++){
 
   //console.log(url)
 
-  //Getting JSON response
+  //Getting JSON data
   d3.json(url)
     .then(function(response) {
       //console.log("DANIEL -- DO YOUR THING HERE");
@@ -260,16 +262,16 @@ for (var i =0; i <corporations.length; i++){
       var lastDate_opening_stock_price = Number(openingPrices[0]);
       var thirty_days_prior_opening_stock_price = Number(openingPrices[(openingPrices.length-1)]);
       var stock_price_difference = lastDate_opening_stock_price - thirty_days_prior_opening_stock_price;
-      var stock_price_difference_percentage = (stock_price_difference/lastDate_opening_stock_price) * 100
+      var stock_price_difference_percentage = ((stock_price_difference/lastDate_opening_stock_price) * 100).toFixed(2);
 
-      console.log(response.dataset.name)
-      console.log(company_ticker)
-      console.log(endDate)
-      console.log(startDate)
-      console.log(openingPrices)
-      console.log(lastDate_opening_stock_price)
-      console.log(thirty_days_prior_opening_stock_price)
-      console.log(stock_price_difference)
+      //console.log(response.dataset.name)
+      //console.log(company_ticker)
+      //console.log(endDate)
+      //console.log(startDate)
+      //console.log(openingPrices)
+      //console.log(lastDate_opening_stock_price)
+      //console.log(thirty_days_prior_opening_stock_price)
+      //console.log(stock_price_difference)
       
       //for loop to get the lat & long
       for (var i =0; i <corporations.length; i++){
@@ -279,12 +281,17 @@ for (var i =0; i <corporations.length; i++){
         }
       };
 
+
+      /*
       //Controlling the size of the icon
       var size_factor = (1 - (stock_price_difference/lastDate_opening_stock_price))*1.5;
+      */
 
+
+      /*
       //https://github.com/pointhi/leaflet-color-markers/blob/master/README.md (custom Marker)
       var greenIcon = new L.Icon({
-        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png$',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
         iconSize: scalarMultiply([25, 40], size_factor),
         iconAnchor: [12, 41],
@@ -309,51 +316,89 @@ for (var i =0; i <corporations.length; i++){
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
       });
+      */
 
+      // Assigning Color of the Marker based on stock performance
       function stockColor(stock_price) {
         switch (true) {
         case (1 < stock_price):
-          return greenIcon
+          return greenMarker
         case (-1 < stock_price && stock_price < 1):
-          return yellowIcon
+          return yellowMarker
         case (-1 > stock_price):
           return redMarker
-          //return redIcon
         //defualt:
           //return redIcon;
         }
       };
 
+      // Pulling the company ticker and turning into lower case
+      var image_variable = company_ticker.toLowerCase();
+
+      // Creating a link to the company log.png file
+      var rotating_image = `<img class="stock-icon" src="Images/${image_variable}.png"/>`;
+
+      // Custom Markers
       var redMarker = L.ExtraMarkers.icon({
         icon: 'fa-coffee',
-        markerColor: 'red',
+        innerHTML: rotating_image,
+        markerColor: 'orange-dark',
         shape: 'square',
+        prefix: 'fa'
+      });
+    
+      var greenMarker = L.ExtraMarkers.icon({
+        icon: 'fa-coffee',
+        innerHTML: rotating_image,
+        markerColor: 'green-light',
+        shape: 'star',
+        prefix: 'fa'
+      });
+
+      var yellowMarker = L.ExtraMarkers.icon({
+        icon: 'fa-coffee',
+        innerHTML: rotating_image,
+        markerColor: 'yellow',
+        shape: 'circle',
         prefix: 'fa'
       });
       
       /*
-            // Creates a red marker with the coffee icon
-      var redMarker = L.ExtraMarkers.icon({
-        icon: 'fa-coffee',
-        markerColor: 'red',
-        shape: 'square',
-        prefix: 'fa'
-      });
+      var logoMarkerStyle = L.Icon.extend({
+        options: {
+        iconSize: [25, 40],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34]
+        }
+      }); 
 
-      L.marker([51.941196,4.512291], {icon: redMarker}).addTo(map);
+      var logo_3M = new logoMarkerStyle({iconUrl: 'Images/mmm.png'});
       */
 
+      // Creating a marker
       var marker = new L.marker(lat_and_long, {icon: stockColor(stock_price_difference_percentage)});
 
-      marker.desc = "<b>" + company_name + "</b><br> Stock Price on " + endDate + ": $" + lastDate_opening_stock_price + 
-        "<br> Stock Price on " + startDate + ": $" + thirty_days_prior_opening_stock_price +
-        "<br> Stock Change over last 30 days: " + stock_price_difference_percentage + "%";
+      var [yyyy, mm, dd] = endDate.split("-");
+      var [yyyy2, mm2, dd2] = startDate.split("-");
+      var endDate_reformtted = `${mm}-${dd}-${yyyy}`;
+      var startDate_reformatted = `${mm2}-${dd2}-${yyyy2}`;
+
+      // Description for a popup
+      marker.desc = "<h2>" + company_name + "</h2> Stock Price on " + endDate_reformtted + ":   $<b>" + lastDate_opening_stock_price + "</b>" +
+        "<br> Stock Price on " + startDate_reformatted + ":   $<b>" + thirty_days_prior_opening_stock_price + "</b>" +
+        "<br> Percent Change over last 30 days:   " + stock_price_difference_percentage + "%";
+      
+      //var tdate = [endDate.slice(-4), endDate.slice(0,5)].join('-');
+      
+
+      //console.log(revdate)
 
       myMap.addLayer(marker);
       oms.addMarker(marker);
   });
 };
 
+// This is to use Spiderfier 
 var oms = new OverlappingMarkerSpiderfier(myMap, {keepSpiderfied: true});
 
 var popup = new L.Popup();
