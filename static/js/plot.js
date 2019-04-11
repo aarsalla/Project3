@@ -1,3 +1,4 @@
+apiKey=process.env.quandlkey
 /**
  * 
  * Helper function to select stock data
@@ -21,7 +22,7 @@ function getdata(stock){
     var forecasted = filter_data.map(d=>+d['Forecasted Earnings Per Share']);
     var surprise = filter_data.map(d=>d['% Surprise']);
       //stock quartly graphs
-   var apiKey = "REHgZFPuj_3cxTxuwvsn";
+   
    console.log(ReportedDate)
    var i
    for (i=0; i<4; i++){
@@ -41,7 +42,6 @@ function getdata(stock){
 
   //Q1
     var start_q1 = new Date(ReportedDate[0])
-    var apiKey = "REHgZFPuj_3cxTxuwvsn";
     var dd = String(start_q1.getDate()-1).padStart(2, '0');
     var mm = String(start_q1.getMonth() + 1).padStart(2, '0');
     var yyyy = start_q1.getFullYear();
@@ -95,7 +95,6 @@ function getdata(stock){
 
       //Q2
       var start_q2 = new Date(ReportedDate[1])
-      var apiKey = "REHgZFPuj_3cxTxuwvsn";
       var dd = String(start_q2.getDate()-1).padStart(2, '0');
       var mm = String(start_q2.getMonth() + 1).padStart(2, '0');
       var yyyy = start_q2.getFullYear();
@@ -146,7 +145,6 @@ function getdata(stock){
 
      //Q3
      var start_q3 = new Date(ReportedDate[2])
-     var apiKey = "REHgZFPuj_3cxTxuwvsn";
      var dd = String(start_q3.getDate()-1).padStart(2, '0');
      var mm = String(start_q3.getMonth() + 1).padStart(2, '0');
      var yyyy = start_q3.getFullYear();
@@ -304,8 +302,7 @@ function unpack(rows, index) {
 //getdata(stock)
 //}
 
-function buildPlot(stock) {
-    var apiKey = "REHgZFPuj_3cxTxuwvsn";
+function buildPlot(stock) 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
