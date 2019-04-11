@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Charts of Select Stocks</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <!-- Start of Nav Section -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid navbar-custom">
+   
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="row">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+   
+   
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right navbar-right-custom">
+   
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/map">Map</a></li>
+                    <li><a href="/data">Data Table</a></li>
+                  </ul>
+
+                </div><!-- /.navbar-collapse -->
+              </div>
+            </div><!-- /.container-fluid -->
+          </nav>
+      <!-- End of Nav Section -->
+
+
+      <!-- Start of banner -->
+      <div class="hero text-left">
+          <h1 class="heading">Dow Jones Industrial Index</h1>
+          <p class="heading">Forecasted vs. Actual Earnings Analysis</p>
+      </div>
+      <!-- End of banner -->
+
+      <!-- Start of container for form submission-->
+      <div class="container-fluid">
+        <section class="row">
+          <div class="col-md-8">
+            <h1 class="">Select Stock</h1>
+              <form class="form-inline">
+                <div class="form-group">
+                  <label for="stockInput"> Stock | </label>
+                  <select id="selDataset" class= "chart_text" onchange="getData(this.value)">
+                      <option value="MMM">3M</option>
+                      <option value="AXP">American Express</option>
+                      <option value="AAPL">Apple</option>
+                      <option value="BA">Boeing</option>
+                      <option value="CAT">Caterpillar</option>
+                      <option value="CVX">Chevron</option>
+                      <option value="CSCO">Cisco</option>
+                      <option value="KO">Coca-Cola</option>
+                      <option value="DIS">Disney</option>
+                      <option value="DOW">Dow Chemical</option>
+                      <option value="XOM">Exxon Mobil</option>
+                      <option value="GS">Goldman Sachs</option>
+                      <option value="HD">Home Depot</option>
+                      <option value="IBM">IBM</option>
+                      <option value="INTC">Intel</option>
+                      <option value="JNJ">Johnson & Johnson</option>
+                      <option value="JPM">JPMorgan Chase</option>
+                      <option value="MCD">McDonald's</option>
+                      <option value="MRK">Merck</option>
+                      <option value="MSFT">Microsoft</option>
+                      <option value="NKE">Nike</option>
+                      <option value="PFE">Pfizer</option>
+                      <option value="PG">Procter & Gamble</option>
+                      <option value="TRV">Travelers Companies Inc</option>
+                      <option value="UTX">United Technologies</option>
+                      <option value="UNH">UnitedHealth</option>
+                      <option value="VZ">Verizon</option>
+                      <option value="V">Visa</option>
+                      <option value="WMT">Wal-Mart</option>
+                      <option value="WBA">Walgreen</option>
+                      <option value="AMZN">Amazon</option>
+                      <option value="FB">Facebook</option>
+                      <option value="GOOGL">Google</option>
+                    </select>
+                  </body>
+                  <!-- <input type="text" class="form-control" id="stockInput" placeholder="Enter a stock"> -->
+                </div>
+                  <!-- <button id="submit" type="submit" class="btn btn-default">Plot Stock</button> -->
+              </form>
+          </div>
+      </div>
+      <!-- End of container for form submission-->
+
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+
+      <!-- Start of container for closing prices and earnings/share by data container-->
+      <div class="container-fluid">
+        <div class="col-md-6">      
+            <h1 class="text-center">Closing Prices</h1>  
+          <div id="plot">
+          </div>
+          <p></p>
+          <p></p>
+        </div>
+
+        <div class="col-md-6">
+            <h1 class="text-center">Earning Per Share by Date</h1>  
+          <div id="plot2">
+          </div>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+       <!-- Start of container for closing prices and earnings/share by data container-->
+
+      <hr>
+
+      <!-- Start of container for analysis by period -->
+      <div class="container">
+            <div class="col-xs-12">
+              <h2 class="text-center">Stock Earnings Percent Change Vs. Forecasted: April 2018 - Present</h1>
+            </div>
+            <div class="col-md-6">
+              <h2 class="text-center">Period 1</h2>
+              <div id="graph0"></div>
+              <div class="text-center" id="text0"></div>
+              <hr class="visible-xs visible-sm">
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">Period 2</h2>
+                <div id="graph1"></div>
+                <div class="text-center" id="text1"></div>
+                <hr class="visible-xs visible-sm">
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">Period 3</h2>
+                <div id="graph2"></div>
+                <div class="text-center" id="text2"></div>
+                <hr class="visible-xs visible-sm">
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">Period 4</h2>
+                <div id="graph3"></div>
+                <div class="text-center" id="text3"></div>
+                <hr class="visible-xs visible-sm">
+            </div>
+      <!-- End of container for analysis by period --> 
+
+    </div>
+
+      <footer class="footer">
+          <span class="bottom">Team 6 | Stock Holders</span>
+      </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="/static/js/plot.js"></script>
+  <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+  </script>
+</body>
+
+</html>

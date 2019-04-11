@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Introduction to Stock Earnings Analysis</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="wrapper">
+
+        <!-- Start of Nav Section -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid navbar-custom">
+   
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="row">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+   
+   
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right navbar-right-custom">
+   
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/map">Map</a></li>
+                    <li><a href="/data">Data Table</a></li>
+   
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div>
+            </div><!-- /.container-fluid -->
+          </nav>
+      <!-- End of Nav Section -->
+
+       <!-- Start of banner 1-->
+      <div class="hero text-left">
+          <h1 class="heading">Dow Jones Industrial Index</h1>
+          <p class="heading">Forecasted vs. Actual Earnings Analysis</p>
+      </div>
+      <!-- End of banner 1-->  
+         
+      <!-- Start container 1-->
+      <div class="container">
+        <div class="col-md-6">      
+          <h1 class="text-left chart_index_margin">Stock Analysis</h1>  
+          <hr>
+          <p></p>
+          <p></p>
+          <P>Explore the stock prices of more than 30 different companies to measure their actual versus forecasted earnings across multiple periods.</P>
+
+        </div>
+
+        <div class="col-md-6">
+            <a href="/charts">
+              <img src="../static/images/chart.jpg" alt="" class="image_chart"/>
+            </a>
+          </div>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+      <!-- End container 1-->
+
+      <!-- Start of banner 2-->
+      <div class="hero1 hero p text-right">
+        <h1>Map of Companies</h1>
+        <p>Locations and Stats of Featured Companies</p>
+      </div>
+      <!-- End of banner 2-->     
+
+      <!-- Start container 2-->
+      <div class="container">
+          <div class="col-md-6">      
+            <h1 class="text-left map_index_margin">Interactive Company Map</h1>  
+            <hr>
+            <p></p>
+            <p></p>
+            <P>Select a point on the map for detailed location, stock price, and stock change information for each company.</P>
+
+          </div>
+
+          <div class="col-md-6">
+              <a href="/map">
+                <img src="../static/images/map.jpg" alt="" class="image_map"/>
+              </a>
+            </div>
+            <p></p>
+            <p></p>
+          </div>
+        </div>
+        <!-- End container 2-->
+
+      <!-- Start of banner 3-->
+      <div class="hero2 hero p text-left">
+        <h1>Analysis Data</h1>
+        <p>Perform Your Own Analysis</p>
+      </div>
+       <!-- End of banner 3-->
+
+      <!-- Start container 3-->
+      <div class="container">
+          <div class="col-md-6">      
+            <h1 class="text-left data_index_margin">Raw Data</h1>  
+            <hr>
+            <p></p>
+            <p></p>
+            <P>Interact with the data used to perform this analysis to discover your own insights and trends.</P>
+  
+          </div>
+  
+          <div class="col-md-6">
+              <a href="/data">
+                <img src="../static/images/raw_data.JPG" alt="" class="image_data"/>
+              </a>
+            </div>
+            <p></p>
+            <p></p>
+          </div>
+        </div>
+        <!-- End container 3-->
+
+            <footer class="footer">
+                <span class="bottom"> Team 6 | Stock Holders</span>
+            </footer>
+        </div> 
+        
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+  </script>
+</body>
+
+</html>
