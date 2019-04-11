@@ -343,7 +343,7 @@ for (var i =0; i <corporations.length; i++){
         icon: 'fa-coffee',
         innerHTML: rotating_image,
         markerColor: 'orange-dark',
-        shape: 'square',
+        shape: 'star',
         prefix: 'fa'
       });
     
@@ -359,7 +359,7 @@ for (var i =0; i <corporations.length; i++){
         icon: 'fa-coffee',
         innerHTML: rotating_image,
         markerColor: 'yellow',
-        shape: 'circle',
+        shape: 'star',
         prefix: 'fa'
       });
       
@@ -386,7 +386,7 @@ for (var i =0; i <corporations.length; i++){
       // Description for a popup
       marker.desc = "<h2>" + company_name + "</h2> Stock Price on " + endDate_reformtted + ":   $<b>" + lastDate_opening_stock_price + "</b>" +
         "<br> Stock Price on " + startDate_reformatted + ":   $<b>" + thirty_days_prior_opening_stock_price + "</b>" +
-        "<br> Percent Change over last 30 days:   " + stock_price_difference_percentage + "%";
+        "<br> Percent Change over last 30 days:   " + "<b>" + stock_price_difference_percentage + "%</b>";
       
       //var tdate = [endDate.slice(-4), endDate.slice(0,5)].join('-');
       
