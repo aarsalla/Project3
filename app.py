@@ -17,6 +17,8 @@ remote_db_port=os.environ['remote_db_port']
 remote_gwsis_dbname=os.environ['remote_gwsis_dbname']
 remote_gwsis_dbuser=os.environ['remote_gswis_dbuser']
 remote_gwsis_dbpwd=os.environ['remote_gwsis_dbpwd']
+apiKey=os.environ['quandlkey']
+API_KEY=os.environ['mapboxkey']
 
 app = Flask(__name__)
 
@@ -36,7 +38,7 @@ def home():
 
 @app.route("/map")
 def map_visual():
-    return render_template("map.html")
+    return render_template("map.html", API_KEY=API_KEY)
 
 @app.route("/charts")
 def chart_visual():

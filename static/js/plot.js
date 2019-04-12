@@ -302,7 +302,7 @@ function unpack(rows, index) {
 //getdata(stock)
 //}
 
-function buildPlot(stock) 
+function buildPlot(stock) {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
