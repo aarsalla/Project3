@@ -10,8 +10,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   id: "mapbox.streets",
   accessToken: API_KEY
 }).addTo(myMap);
-apiKey=process.env.quandlkey;
-API_KEY=process.env.mapboxkey;
+
 /*
 // This would replace mapbox. Replace "toner" here with "terrain" or "watercolor" for other options.
 var layer = new L.StamenTileLayer("toner");
