@@ -38,7 +38,7 @@ def home():
 
 @app.route("/map")
 def map_visual():
-    return render_template("map.html", API_KEY=API_KEY)
+    return render_template("map.html")
 
 @app.route("/charts")
 def chart_visual():
