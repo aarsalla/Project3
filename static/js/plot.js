@@ -1,4 +1,5 @@
 var apiKey='REHgZFPuj_3cxTxuwvsn';
+console.log(apiKey);
 /**
  * 
  * Helper function to select stock data
