@@ -1,4 +1,4 @@
-apiKey=process.env.quandlkey
+var apiKey='REHgZFPuj_3cxTxuwvsn';
 /**
  * 
  * Helper function to select stock data

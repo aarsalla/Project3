@@ -5,7 +5,7 @@ var myMap = L.map("map", {
   zoom: 4
 });
 
-API_KEY = process.env.mapboxkey;
+API_KEY = 'sk.eyJ1Ijoia2ltODY2IiwiYSI6ImNqdWJnOGhxNzA4MnYzeXF5eHN4aDBrcXgifQ.jkpEQO7HSRwn6DcqFG25Gg';
 console.log(API_KEY);
 
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -229,7 +229,7 @@ for (var i =0; i <corporations.length; i++){
   */
 
   //API key for quandl.com - paid by Aimal
-  apiKey=process.env.quandlkey
+  apiKey='REHgZFPuj_3cxTxuwvsn';
 
   //Building the URL to use for JSON
   var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock_ticker}?start_date=${thirty_days_prior_API}&end_date=${lastDate_API}&api_key=${apiKey}`;
