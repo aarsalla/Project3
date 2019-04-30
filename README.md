@@ -1,0 +1,5 @@
+# Project3
+
+## Proposal
+
+Our page will have a dashboard that you can search Dow Jones stocks plus AMZN, GOOGL, and FB. It will give you graphs of the stock price after the last 4 earnings reports for the particular stock from the day before the report to a month later and include the projected earnings per share vs the actual, which will be scraped from the web. This data will be stored in an AWS database that can be updated as new reports come out. We will include the earnings per share and projected earnings per share in a table next to the graph. This will also give us access to that data to graph. We will have another graph that gives a general overview of the stock price over time. We will also scrape the web for recent links about the company, and then include the next earnings report date for that stock. The headquarters of each stock that we are reporting will be plotted on a map, with the markers being sized to their stock price. It will also be interactive so if you click on one of the markers, it will take you to the stock data page for that stock.
