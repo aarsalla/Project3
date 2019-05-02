@@ -212,6 +212,19 @@ body {
   border-width: 5px;
 }
 
+#h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.stock-icon {
+  font-size: 10px;
+  margin-top: 8px;
+  height:21px;
+  width: 25px;
+}
+
+
 /* Map End */
 
 /* ----DESCRIPTION START---- */
@@ -276,3 +289,12 @@ body {
 }
 
 /* ----DESCRIPTION END---- */
+
+.chart_text {
+  color: #041c2b;
+}
+
+.heading{
+  color: #041c2b;
+}
+
