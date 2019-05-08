@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
@@ -36,6 +37,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/charts">Charts</a></li>
                     <li><a href="/map">Map</a></li>
+                    <li><a href="/regression">Regression Analyses</a></li>
                     <li><a href="/data">Data Table</a></li>
                   </ul>
 
@@ -48,8 +50,8 @@
 
       <!-- Start of banner -->
       <div class="hero text-left">
-          <h1 class="heading">Dow Jones Industrial Index</h1>
-          <p class="heading">Forecasted vs. Actual Earnings Analysis</p>
+          <h1><span>Dow Jones Industrial Index</span></h1><br>
+          <p class="heading"><span>Forecasted vs. Actual Earnings Analysis</span></p>
       </div>
       <!-- End of banner -->
 
@@ -113,7 +115,7 @@
       <!-- Start of container for closing prices and earnings/share by data container-->
       <div class="container-fluid">
         <div class="col-md-6">      
-            <h1 class="text-center">Closing Prices</h1>  
+            <h1 class="text-center heading">Closing Prices</h1>  
           <div id="plot">
           </div>
           <p></p>
@@ -121,7 +123,7 @@
         </div>
 
         <div class="col-md-6">
-            <h1 class="text-center">Earning Per Share by Date</h1>  
+            <h1 class="text-center heading">Earning Per Share by Date</h1>  
           <div id="plot2">
           </div>
           <p></p>
@@ -130,35 +132,35 @@
       </div>
        <!-- Start of container for closing prices and earnings/share by data container-->
 
-      <hr>
+      <hr class="style-one">
 
       <!-- Start of container for analysis by period -->
       <div class="container">
             <div class="col-xs-12">
-              <h2 class="text-center">Stock Earnings Percent Change Vs. Forecasted: April 2018 - Present</h1>
+              <h2 class="text-center heading">Stock Earnings Percent Change Vs. Forecasted: April 2018 - Present</h1>
             </div>
             <div class="col-md-6">
-              <h2 class="text-center">Period 1</h2>
+              <h2 class="text-center heading">Period 1</h2>
               <div id="graph0"></div>
-              <div class="text-center" id="text0"></div>
+              <div class="text-center chart_text" id="text0"></div>
               <hr class="visible-xs visible-sm">
             </div>
             <div class="col-md-6">
-                <h2 class="text-center">Period 2</h2>
+                <h2 class="text-center heading">Period 2</h2>
                 <div id="graph1"></div>
-                <div class="text-center" id="text1"></div>
+                <div class="text-center chart_text" id="text1"></div>
                 <hr class="visible-xs visible-sm">
             </div>
             <div class="col-md-6">
-                <h2 class="text-center">Period 3</h2>
+                <h2 class="text-center heading">Period 3</h2>
                 <div id="graph2"></div>
-                <div class="text-center" id="text2"></div>
+                <div class="text-center chart_text" id="text2"></div>
                 <hr class="visible-xs visible-sm">
             </div>
             <div class="col-md-6">
-                <h2 class="text-center">Period 4</h2>
+                <h2 class="text-center heading">Period 4</h2>
                 <div id="graph3"></div>
-                <div class="text-center" id="text3"></div>
+                <h3 class="text-center chart_text" id="text3"></div>
                 <hr class="visible-xs visible-sm">
             </div>
       <!-- End of container for analysis by period --> 
@@ -166,7 +168,7 @@
     </div>
 
       <footer class="footer">
-          <span class="bottom">Team 6 | Stock Holders</span>
+          <span class="bottom heading">Team 6 | Stock Holders</span>
       </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>

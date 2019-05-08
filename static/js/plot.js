@@ -29,12 +29,12 @@ function getdata(stock){
    for (i=0; i<4; i++){
      var clear = d3.select(`#text${i}`)
      clear.html("")
-       d3.select(`#text${i}`).append("h3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[i]}%`)
+       d3.select(`#text${i}`).append("h3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[i]}%`).classed('chart-header', true)
      //  d3.select("#surprise1").text(`Earnings Percent Change Vs. Forecasted: ${surprise[1]}%`)
      //  d3.select("#surprise2").text(`Earnings Percent Change Vs. Forecasted: ${surprise[2]}%`)
      //  d3.select("#surprise3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[3]}%`)
      
-        d3.select(`#text${i}`).append("h4").text(`Earnings Report Date: ${ReportedDate[i]}`)
+        d3.select(`#text${i}`).append("h4").text(`Earnings Report Date: ${ReportedDate[i]}`).classed('chart-subheader', true)
         d3.select(`#text${i}`).append("hr")
      //  d3.select("#report1").text(`Earnings Report Date: ${ReportedDate[1]}`)
      //  d3.select("#report2").text(`Earnings Report Date: ${ReportedDate[2]}`)
