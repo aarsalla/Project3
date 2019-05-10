@@ -12,19 +12,19 @@ from sqlalchemy import create_engine
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
-remote_db_endpoint=os.environ['remote_db_endpoint']
-remote_db_port=os.environ['remote_db_port']
-remote_gwsis_dbname=os.environ['remote_gwsis_dbname']
-remote_gwsis_dbuser=os.environ['remote_gswis_dbuser']
-remote_gwsis_dbpwd=os.environ['remote_gwsis_dbpwd']
-apiKey=os.environ['quandlkey']
-API_KEY=os.environ['mapboxkey']
+#remote_db_endpoint=os.environ['remote_db_endpoint']
+#remote_db_port=os.environ['remote_db_port']
+#remote_gwsis_dbname=os.environ['remote_gwsis_dbname']
+#remote_gwsis_dbuser=os.environ['remote_gswis_dbuser']
+#remote_gwsis_dbpwd=os.environ['remote_gwsis_dbpwd']
+#apiKey=os.environ['quandlkey']
+#API_KEY=os.environ['mapboxkey']
 
 app = Flask(__name__)
 
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://root:{remote_gwsis_dbpwd}@codingbootcamp.ctxjv3tnsa2p.us-east-2.rds.amazonaws.com/marchmadness"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://root:stockholders@codingbootcamp.ctxjv3tnsa2p.us-east-2.rds.amazonaws.com/marchmadness"
 db = SQLAlchemy(app)
 
 Base = automap_base()
