@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  <link rel="stylesheet" href="../static/css/style.css">
 
   <!-- http://maps.stamen.com/#watercolor/12/37.7706/-122.3782-->
  <script type="text/javascript" src='http://maps.stamen.com/js/tile.stamen.js?v1.3.0'></script>
@@ -68,6 +69,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/charts">Charts</a></li>
                     <li><a href="/map">Map</a></li>
+                    <li><a href="/regression">Regression Analyses</a></li>
                     <li><a href="/data">Data Table</a></li>
    
                   </ul>
@@ -80,8 +82,8 @@
       <!-- Start of banner -->
       <section>
           <div class="hero text-left">
-              <h1 class="heading">Map of Companies</h1>
-              <p class="heading">Locations and Stats of Featured Companies</p>
+              <h1><span>Map of Companies</span></h1><br>
+              <p class="heading"><span>Locations and Stats of Featured Companies</span></p>
           </div>
       </section>
       <!-- End of banner -->
@@ -90,17 +92,32 @@
             <div class="container">
               <section class="row">
                 <div class="col-md-8">
-                  <h1 class="">Interactive Company Map</h1>
+                  <h1 class="heading">Interactive Dow Jones Company Map</h1>
                 </div>
             </div>
             <!-- End container 1-->
 
       <!-- The div where we will inject our map -->
       <div class="solid" id="map"></div> 
+
+      <hr class = "style-one">
+
+       <!-- Start container 1-->
+       <div class="container">
+        <section class="row">
+          <div class="col-md-8">
+            <h1 class="heading">Interactive S&P 500 Company Map</h1>
+          </div>
+      </div>
+      <!-- End container 1-->
+
+      <div class="solid" id=""></div> 
+
+      <br>
       
     </div>
     <footer class="footer">
-        <span class="bottom">Team 6 | Stock Holders</span>
+        <span class="bottom heading">Team 6 | Stock Holders</span>
     </footer>
  
   

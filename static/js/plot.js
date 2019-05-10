@@ -26,6 +26,7 @@ function getdata(stock) {
       );
       var surprise = filter_data.map(d => d["% Surprise"]);
       //stock quartly graphs
+<<<<<<< HEAD
 
       console.log(ReportedDate);
       var i;
@@ -58,6 +59,36 @@ function getdata(stock) {
 
       if (mm === "12") {
         var dd2 = String(start_q1.getDate() - 1).padStart(2, "0");
+=======
+   
+   console.log(ReportedDate)
+   var i
+   for (i=0; i<4; i++){
+     var clear = d3.select(`#text${i}`)
+     clear.html("")
+       d3.select(`#text${i}`).append("h3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[i]}%`).classed('chart-header', true)
+     //  d3.select("#surprise1").text(`Earnings Percent Change Vs. Forecasted: ${surprise[1]}%`)
+     //  d3.select("#surprise2").text(`Earnings Percent Change Vs. Forecasted: ${surprise[2]}%`)
+     //  d3.select("#surprise3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[3]}%`)
+     
+        d3.select(`#text${i}`).append("h4").text(`Earnings Report Date: ${ReportedDate[i]}`).classed('chart-subheader', true)
+        d3.select(`#text${i}`).append("hr")
+     //  d3.select("#report1").text(`Earnings Report Date: ${ReportedDate[1]}`)
+     //  d3.select("#report2").text(`Earnings Report Date: ${ReportedDate[2]}`)
+     //  d3.select("#report3").text(`Earnings Report Date: ${ReportedDate[3]}`)
+   }
+
+  //Q1
+    var start_q1 = new Date(ReportedDate[0])
+    var dd = String(start_q1.getDate()-1).padStart(2, '0');
+    var mm = String(start_q1.getMonth() + 1).padStart(2, '0');
+    var yyyy = start_q1.getFullYear();
+    var date_q1 = yyyy + '-' + mm + '-' + dd;
+    var date_title_1 = mm + '/' + dd + '/' + yyyy;
+    
+    if (mm === '12'){
+        var dd2 = String(start_q1.getDate()-1).padStart(2, '0');
+>>>>>>> master
         var mm2 = "01";
         var yyyy2 = start_q1.getFullYear() + 1;
       } else if (mm === "01") {
