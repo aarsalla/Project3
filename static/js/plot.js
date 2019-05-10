@@ -546,7 +546,21 @@ function mainPlot() {
     Plotly.newPlot("plot", data, layout);
     var click = document.getElementById('plot') 
   click.on('plotly_click',function(data){
-    console.log(data)
+    var stock = data.points[0].data.name
+   new_plot = [data.points[0].data,{name: stock}]
+   var new_layout = {
+    title: `${stock} closing prices`,
+    xaxis: {
+      range: ["2017-05-01", "2019-05-05"],
+      type: "date"
+    },
+    yaxis: {
+      autorange: true,
+      type: "linear"
+    },
+    hovermode: 'closest'
+  };
+    Plotly.newPlot("plot", new_plot, new_layout);
     })
     
   
