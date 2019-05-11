@@ -331,11 +331,21 @@ body {
   font-size: 20 px;
 }
 
+/* Horizontal Rules */
+
 hr.style-one {
     border: 0;
     height: 3px;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #5e0000, #ccc);
+}
+
+hr.style-three {
+  border: 0;
+  border-bottom: 3px dashed #5e0000;
+  background: #e4e9ec;
+  margin-right: 200px;
+  margin-left: 200px;
 }
 
 h1 span { 
@@ -365,4 +375,89 @@ p span {
 .chart-subheader {
   color: #5e0000; 
   font: bold 15px Helvetica, Sans-Serif; 
+}
+
+/* Styles for ML Section */
+.image_futurestockprice {
+  position: relative;
+  float: left;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /* margin-left: 50px; */
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_percentchange {
+  position: relative;
+  float: right;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_neuralnetwork {
+  position: relative;
+  float: left;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_clustering {
+  position: relative;
+  float: right;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_linear {
+  position: relative;
+  float: left;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /* margin-left: 50px; */
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_logistic {
+  position: relative;
+  float: right;
+  height: 150px;
+  width: 650px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
 }
