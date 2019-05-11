@@ -59,11 +59,12 @@
       <div class="container-fluid">
         <section class="row">
           <div class="col-md-8">
-            <h1 class="">Select Stock</h1>
+            <h3 class="heading">Select Stock</h3>
               <form class="form-inline">
                 <div class="form-group">
-                  <label for="stockInput"> Stock | </label>
+                  <label class="heading" for="stockInput"> Stock | </label>
                   <select id="selDataset" class= "chart_text" onchange="getData(this.value)">
+                      <option value=" "></option>
                       <option value="MMM">3M</option>
                       <option value="AXP">American Express</option>
                       <option value="AAPL">Apple</option>
@@ -103,7 +104,9 @@
                       <option value="1">Small Companies</option>
                       <option value="2">Medium Companies</option>
                       <option value="3">Large Companies</option>
+                      <option value="4">Largest Companies</option>
                     </select>
+                   
                   </body>
                   <!-- <input type="text" class="form-control" id="stockInput" placeholder="Enter a stock"> -->
                 </div>
@@ -120,37 +123,55 @@
 
       <!-- Start of container for closing prices and earnings/share by data container-->
       <div class="container-fluid">
-        <div class="col-md-6">      
+        <div class="col-md-12">      
             <h1 class="text-center heading">Closing Prices</h1>  
+            <h5 class="heading">Click on individual line on graph to see detailed stock performance below</h5>
           <div id="plot">
           </div>
           <p></p>
           <p></p>
         </div>
+      </div>
 
         <div class="col-md-6">
-            <h1 class="text-center heading">Earning Per Share by Date</h1>  
+          <br>
+            <h1 class="text-center heading">Earnings Per Share by Date</h1>  
           <div id="plot2">
           </div>
           <p></p>
           <p></p>
         </div>
-      </div>
+        
        <!-- Start of container for closing prices and earnings/share by data container-->
-
+       <div class="col-md-6">
+          <div class="container-fluid">
+              <form class="form-inline">
+                 <div class="form-group">
+                 <label class=heading>Filter by Earnings Period:</label>
+               <select id="periods" class= "chart_text">
+                <option value="0">Period 1</option>
+                <option value="1">Period 2</option>
+                <option value="2">Period 3</option>
+                <option value="3">Period 4</option>
+              </select>
+        
+            </div>
+            </form>
+          </div>
+      
+        <h1 class="text-center heading">30 Days After Earnings Report</h1>
+        <div id="graph0"></div>
+        <div class="text-center chart_text" id="text0"></div>
+        <hr class="visible-xs visible-sm">
+      </div>
       <hr class="style-one">
 
-      <!-- Start of container for analysis by period -->
+      <!-- Start of container for analysis by period 
       <div class="container">
             <div class="col-xs-12">
               <h2 class="text-center heading">Stock Earnings Percent Change Vs. Forecasted: April 2018 - Present</h1>
             </div>
-            <div class="col-md-6">
-              <h2 class="text-center heading">Period 1</h2>
-              <div id="graph0"></div>
-              <div class="text-center chart_text" id="text0"></div>
-              <hr class="visible-xs visible-sm">
-            </div>
+            
             <div class="col-md-6">
                 <h2 class="text-center heading">Period 2</h2>
                 <div id="graph1"></div>
@@ -168,7 +189,7 @@
                 <div id="graph3"></div>
                 <h3 class="text-center chart_text" id="text3"></div>
                 <hr class="visible-xs visible-sm">
-            </div>
+            </div> -->
       <!-- End of container for analysis by period --> 
 
     </div>

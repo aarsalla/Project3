@@ -26,40 +26,6 @@ function getdata(stock) {
       );
       var surprise = filter_data.map(d => d["% Surprise"]);
       //stock quartly graphs
-<<<<<<< HEAD
-
-      console.log(ReportedDate);
-      var i;
-      for (i = 0; i < 4; i++) {
-        var clear = d3.select(`#text${i}`);
-        clear.html("");
-        d3.select(`#text${i}`)
-          .append("h3")
-          .text(`Earnings Percent Change Vs. Forecasted: ${surprise[i]}%`);
-        //  d3.select("#surprise1").text(`Earnings Percent Change Vs. Forecasted: ${surprise[1]}%`)
-        //  d3.select("#surprise2").text(`Earnings Percent Change Vs. Forecasted: ${surprise[2]}%`)
-        //  d3.select("#surprise3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[3]}%`)
-
-        d3.select(`#text${i}`)
-          .append("h4")
-          .text(`Earnings Report Date: ${ReportedDate[i]}`);
-        d3.select(`#text${i}`).append("hr");
-        //  d3.select("#report1").text(`Earnings Report Date: ${ReportedDate[1]}`)
-        //  d3.select("#report2").text(`Earnings Report Date: ${ReportedDate[2]}`)
-        //  d3.select("#report3").text(`Earnings Report Date: ${ReportedDate[3]}`)
-      }
-
-      //Q1
-      var start_q1 = new Date(ReportedDate[0]);
-      var dd = String(start_q1.getDate() - 1).padStart(2, "0");
-      var mm = String(start_q1.getMonth() + 1).padStart(2, "0");
-      var yyyy = start_q1.getFullYear();
-      var date_q1 = yyyy + "-" + mm + "-" + dd;
-      var date_title_1 = mm + "/" + dd + "/" + yyyy;
-
-      if (mm === "12") {
-        var dd2 = String(start_q1.getDate() - 1).padStart(2, "0");
-=======
    
    console.log(ReportedDate)
    var i
@@ -88,7 +54,6 @@ function getdata(stock) {
     
     if (mm === '12'){
         var dd2 = String(start_q1.getDate()-1).padStart(2, '0');
->>>>>>> master
         var mm2 = "01";
         var yyyy2 = start_q1.getFullYear() + 1;
       } else if (mm === "01") {
@@ -137,171 +102,7 @@ function getdata(stock) {
         Plotly.newPlot("graph0", data4, layout);
       });
 
-      //Q2
-      var start_q2 = new Date(ReportedDate[1]);
-      var dd = String(start_q2.getDate() - 1).padStart(2, "0");
-      var mm = String(start_q2.getMonth() + 1).padStart(2, "0");
-      var yyyy = start_q2.getFullYear();
-      var date_q2 = yyyy + "-" + mm + "-" + dd;
-      var date_title_2 = mm + "/" + dd + "/" + yyyy;
-      if (mm === "12") {
-        var dd2 = String(start_q2.getDate() - 1).padStart(2, "0");
-        var mm2 = "01";
-        var yyyy2 = start_q2.getFullYear() + 1;
-      } else if (mm === "01") {
-        var dd2 = String(start_q2.getDate() - 3).padStart(2, "0");
-        var mm2 = String(start_q2.getMonth() + 2).padStart(2, "0");
-        var yyyy2 = start_q2.getFullYear();
-      } else {
-        var dd2 = String(start_q2.getDate() - 1).padStart(2, "0");
-        var mm2 = String(start_q2.getMonth() + 2).padStart(2, "0");
-        var yyyy2 = start_q2.getFullYear();
-      }
-      var month_q2 = yyyy2 + "-" + mm2 + "-" + dd2;
-      var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q2}&end_date=${month_q2}&api_key=${apiKey}`;
-
-      d3.json(url).then(function(data) {
-        var name = data.dataset.name;
-        var stock = data.dataset.dataset_code;
-        var startDate = data.dataset.start_date;
-        var endDate = data.dataset.end_date;
-        var dates = unpack(data.dataset.data, 0);
-        var closingPrices = unpack(data.dataset.data, 1);
-        var trace4 = {
-          type: "scatter",
-          mode: "lines",
-          name: name,
-          x: dates,
-          y: closingPrices,
-          line: {
-            color: "#17BECF"
-          }
-        };
-        var data4 = [trace4];
-        var layout = {
-          title: `${stock} Stock Price after ${date_title_2} Earnings Report`,
-          xaxis: {
-            range: [startDate, endDate],
-            type: "date"
-          },
-          yaxis: {
-            autorange: true,
-            type: "linear"
-          }
-        };
-        Plotly.newPlot("graph1", data4, layout);
-      });
-
-      //Q3
-      var start_q3 = new Date(ReportedDate[2]);
-      var dd = String(start_q3.getDate() - 1).padStart(2, "0");
-      var mm = String(start_q3.getMonth() + 1).padStart(2, "0");
-      var yyyy = start_q3.getFullYear();
-      var date_q3 = yyyy + "-" + mm + "-" + dd;
-      var date_title_3 = mm + "/" + dd + "/" + yyyy;
-      console.log(mm);
-      if (mm === "12") {
-        var dd2 = String(start_q3.getDate() - 1).padStart(2, "0");
-        var mm2 = "01";
-        var yyyy2 = start_q3.getFullYear() + 1;
-      } else if (mm === "01") {
-        var dd2 = String(start_q3.getDate() - 3).padStart(2, "0");
-        var mm2 = String(start_q3.getMonth() + 2).padStart(2, "0");
-        var yyyy2 = start_q3.getFullYear();
-      } else {
-        var dd2 = String(start_q3.getDate() - 1).padStart(2, "0");
-        var mm2 = String(start_q3.getMonth() + 2).padStart(2, "0");
-        var yyyy2 = start_q3.getFullYear();
-      }
-      var month_q3 = yyyy2 + "-" + mm2 + "-" + dd2;
-      var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q3}&end_date=${month_q3}&api_key=${apiKey}`;
-
-      d3.json(url).then(function(data) {
-        var name = data.dataset.name;
-        var stock = data.dataset.dataset_code;
-        var startDate = data.dataset.start_date;
-        var endDate = data.dataset.end_date;
-        var dates = unpack(data.dataset.data, 0);
-        var closingPrices = unpack(data.dataset.data, 1);
-        var trace4 = {
-          type: "scatter",
-          mode: "lines",
-          name: name,
-          x: dates,
-          y: closingPrices,
-          line: {
-            color: "#17BECF"
-          }
-        };
-        var data4 = [trace4];
-        var layout = {
-          title: `${stock} Stock Price after ${date_title_3} Earnings Report`,
-          xaxis: {
-            range: [startDate, endDate],
-            type: "date"
-          },
-          yaxis: {
-            autorange: true,
-            type: "linear"
-          }
-        };
-        Plotly.newPlot("graph2", data4, layout);
-      });
-
-      //Q4
-      var start_q4 = new Date(ReportedDate[3]);
-      var dd = String(start_q4.getDate() - 1).padStart(2, "0");
-      var mm = String(start_q4.getMonth() + 1).padStart(2, "0");
-      var yyyy = start_q4.getFullYear();
-      var date_q4 = yyyy + "-" + mm + "-" + dd;
-      var date_title_4 = mm + "/" + dd + "/" + yyyy;
-      if (mm === "12") {
-        var dd2 = String(start_q4.getDate() - 1).padStart(2, "0");
-        var mm2 = "01";
-        var yyyy2 = start_q4.getFullYear() + 1;
-      } else if (mm === "01") {
-        var dd2 = String(start_q4.getDate() - 3).padStart(2, "0");
-        var mm2 = String(start_q4.getMonth() + 2).padStart(2, "0");
-        var yyyy2 = start_q4.getFullYear();
-      } else {
-        var dd2 = String(start_q4.getDate() - 1).padStart(2, "0");
-        var mm2 = String(start_q4.getMonth() + 2).padStart(2, "0");
-        var yyyy2 = start_q4.getFullYear();
-      }
-      var month_q4 = yyyy2 + "-" + mm2 + "-" + dd2;
-      var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q4}&end_date=${month_q4}&api_key=${apiKey}`;
-
-      d3.json(url).then(function(data) {
-        var name = data.dataset.name;
-        var stock = data.dataset.dataset_code;
-        var startDate = data.dataset.start_date;
-        var endDate = data.dataset.end_date;
-        var dates = unpack(data.dataset.data, 0);
-        var closingPrices = unpack(data.dataset.data, 1);
-        var trace4 = {
-          type: "scatter",
-          mode: "lines",
-          name: name,
-          x: dates,
-          y: closingPrices,
-          line: {
-            color: "#17BECF"
-          }
-        };
-        var data4 = [trace4];
-        var layout = {
-          title: `${stock} Stock Price after ${date_title_4} Earnings Report`,
-          xaxis: {
-            range: [startDate, endDate],
-            type: "date"
-          },
-          yaxis: {
-            autorange: true,
-            type: "linear"
-          }
-        };
-        Plotly.newPlot("graph3", data4, layout);
-      });
+     
 
       //end stock quartly graphs
 
@@ -335,6 +136,73 @@ function getdata(stock) {
       };
 
       Plotly.newPlot("plot2", data2, layout);
+
+      d3.select('#periods').on('change', function(){
+        var clear = d3.select(`#text0`)
+     clear.html("")
+       d3.select(`#text0`).append("h3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[this.value]}%`).classed('chart-header', true)
+     //  d3.select("#surprise1").text(`Earnings Percent Change Vs. Forecasted: ${surprise[1]}%`)
+     //  d3.select("#surprise2").text(`Earnings Percent Change Vs. Forecasted: ${surprise[2]}%`)
+     //  d3.select("#surprise3").text(`Earnings Percent Change Vs. Forecasted: ${surprise[3]}%`)
+     
+        d3.select(`#text0`).append("h4").text(`Earnings Report Date: ${ReportedDate[this.value]}`).classed('chart-subheader', true)
+        d3.select(`#text0`).append("hr")
+//Q2
+var start_q2 = new Date(ReportedDate[this.value]);
+var dd = String(start_q2.getDate() - 1).padStart(2, "0");
+var mm = String(start_q2.getMonth() + 1).padStart(2, "0");
+var yyyy = start_q2.getFullYear();
+var date_q2 = yyyy + "-" + mm + "-" + dd;
+var date_title_2 = mm + "/" + dd + "/" + yyyy;
+if (mm === "12") {
+  var dd2 = String(start_q2.getDate() - 1).padStart(2, "0");
+  var mm2 = "01";
+  var yyyy2 = start_q2.getFullYear() + 1;
+} else if (mm === "01") {
+  var dd2 = String(start_q2.getDate() - 3).padStart(2, "0");
+  var mm2 = String(start_q2.getMonth() + 2).padStart(2, "0");
+  var yyyy2 = start_q2.getFullYear();
+} else {
+  var dd2 = String(start_q2.getDate() - 1).padStart(2, "0");
+  var mm2 = String(start_q2.getMonth() + 2).padStart(2, "0");
+  var yyyy2 = start_q2.getFullYear();
+}
+var month_q2 = yyyy2 + "-" + mm2 + "-" + dd2;
+var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q2}&end_date=${month_q2}&api_key=${apiKey}`;
+
+d3.json(url).then(function(data) {
+  var name = data.dataset.name;
+  var stock = data.dataset.dataset_code;
+  var startDate = data.dataset.start_date;
+  var endDate = data.dataset.end_date;
+  var dates = unpack(data.dataset.data, 0);
+  var closingPrices = unpack(data.dataset.data, 1);
+  var trace4 = {
+    type: "scatter",
+    mode: "lines",
+    name: name,
+    x: dates,
+    y: closingPrices,
+    line: {
+      color: "#17BECF"
+    }
+  };
+  var data4 = [trace4];
+  var layout = {
+    title: `${stock} Stock Price after ${date_title_2} Earnings Report`,
+    xaxis: {
+      range: [startDate, endDate],
+      type: "date"
+    },
+    yaxis: {
+      autorange: true,
+      type: "linear"
+    }
+  };
+  Plotly.newPlot("graph0", data4, layout);
+});
+
+      })
     })
     .catch(err => console.error(err));
 }
@@ -514,6 +382,7 @@ function mainPlot() {
   }
  
   Promise.all(promises).then(function(traces) {
+    var trace_higher = [];
     var trace_high = [];
     var trace_med = [];
     var trace_low = [];
@@ -522,15 +391,17 @@ function mainPlot() {
     for (i = 0; i < 32; i++) {
     if (traces[i].y[0]>500){
       
-        trace_high.push(traces[i])
+        trace_higher.push(traces[i])
        /* hovermode: 'off',
         visible: "legendonly" */
       
     } else if (traces[i].y[0]>150){
-      trace_med.push(traces[i])
+      trace_high.push(traces[i])
 
     }
-    else if (traces[i].y[0]>80){
+    else if (traces[i].y[0]>120){
+      trace_med.push(traces[i])}
+    else if (traces[i].y[0]>70){
       trace_low.push(traces[i])}
     else {
       
@@ -538,9 +409,9 @@ function mainPlot() {
     
   }
 }
-    var data = traces;
+    var data = trace_lower;
     var layout = {
-      title: `closing prices`,
+      title: `Dow Jones Closing Prices (2 Years to Date)`,
       xaxis: {
         range: ["2017-05-01", "2019-05-05"],
         type: "date"
@@ -552,16 +423,38 @@ function mainPlot() {
       hovermode: 'closest'
     };
 
-    var traceLevel = [trace_lower,trace_low,trace_med, trace_high]
+    var traceLevel = [trace_lower,trace_low,trace_med, trace_high,trace_higher]
   console.log(traceLevel)
     Plotly.newPlot("plot", data, layout);
-
+    var click = document.getElementById('plot') 
+    click.on('plotly_click',function(data){
+      var stock = data.points[0].data.name
+     new_plot = [data.points[0].data,{name: stock}]
+     var new_layout = {
+      title: `${stock} closing prices`,
+      xaxis: {
+        range: ["2017-05-01", "2019-05-05"],
+        type: "date"
+      },
+      yaxis: {
+        autorange: true,
+        type: "linear"
+      },
+      hovermode: 'closest'
+    };
+      Plotly.newPlot("plot", new_plot, new_layout);
+      getdata(stock)
+      })
 /* filtering main graph*/
     d3.select('#filtergraph').on('change', function(){
+      var clear_1 = d3.select(`#plot2`)
+     clear_1.html("")
+     var clear_2 = d3.select(`#graph0`)
+     clear_2.html("")
       var valueTraceToPlot = traceLevel[this.value];
       var data = valueTraceToPlot;
     var layout = {
-      title: `closing prices`,
+      title: `Dow Jones Closing Prices (2 Years to Date)`,
       xaxis: {
         range: ["2017-05-01", "2019-05-05"],
         type: "date"
@@ -592,6 +485,7 @@ function mainPlot() {
     hovermode: 'closest'
   };
     Plotly.newPlot("plot", new_plot, new_layout);
+    getdata(stock)
     })
     
   
@@ -599,5 +493,171 @@ function mainPlot() {
   })}
 
 
+/*
+ //Q2
+ var start_q2 = new Date(ReportedDate[1]);
+ var dd = String(start_q2.getDate() - 1).padStart(2, "0");
+ var mm = String(start_q2.getMonth() + 1).padStart(2, "0");
+ var yyyy = start_q2.getFullYear();
+ var date_q2 = yyyy + "-" + mm + "-" + dd;
+ var date_title_2 = mm + "/" + dd + "/" + yyyy;
+ if (mm === "12") {
+   var dd2 = String(start_q2.getDate() - 1).padStart(2, "0");
+   var mm2 = "01";
+   var yyyy2 = start_q2.getFullYear() + 1;
+ } else if (mm === "01") {
+   var dd2 = String(start_q2.getDate() - 3).padStart(2, "0");
+   var mm2 = String(start_q2.getMonth() + 2).padStart(2, "0");
+   var yyyy2 = start_q2.getFullYear();
+ } else {
+   var dd2 = String(start_q2.getDate() - 1).padStart(2, "0");
+   var mm2 = String(start_q2.getMonth() + 2).padStart(2, "0");
+   var yyyy2 = start_q2.getFullYear();
+ }
+ var month_q2 = yyyy2 + "-" + mm2 + "-" + dd2;
+ var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q2}&end_date=${month_q2}&api_key=${apiKey}`;
+
+ d3.json(url).then(function(data) {
+   var name = data.dataset.name;
+   var stock = data.dataset.dataset_code;
+   var startDate = data.dataset.start_date;
+   var endDate = data.dataset.end_date;
+   var dates = unpack(data.dataset.data, 0);
+   var closingPrices = unpack(data.dataset.data, 1);
+   var trace4 = {
+     type: "scatter",
+     mode: "lines",
+     name: name,
+     x: dates,
+     y: closingPrices,
+     line: {
+       color: "#17BECF"
+     }
+   };
+   var data4 = [trace4];
+   var layout = {
+     title: `${stock} Stock Price after ${date_title_2} Earnings Report`,
+     xaxis: {
+       range: [startDate, endDate],
+       type: "date"
+     },
+     yaxis: {
+       autorange: true,
+       type: "linear"
+     }
+   };
+   Plotly.newPlot("graph1", data4, layout);
+ });
+
+ //Q3
+ var start_q3 = new Date(ReportedDate[2]);
+ var dd = String(start_q3.getDate() - 1).padStart(2, "0");
+ var mm = String(start_q3.getMonth() + 1).padStart(2, "0");
+ var yyyy = start_q3.getFullYear();
+ var date_q3 = yyyy + "-" + mm + "-" + dd;
+ var date_title_3 = mm + "/" + dd + "/" + yyyy;
+ console.log(mm);
+ if (mm === "12") {
+   var dd2 = String(start_q3.getDate() - 1).padStart(2, "0");
+   var mm2 = "01";
+   var yyyy2 = start_q3.getFullYear() + 1;
+ } else if (mm === "01") {
+   var dd2 = String(start_q3.getDate() - 3).padStart(2, "0");
+   var mm2 = String(start_q3.getMonth() + 2).padStart(2, "0");
+   var yyyy2 = start_q3.getFullYear();
+ } else {
+   var dd2 = String(start_q3.getDate() - 1).padStart(2, "0");
+   var mm2 = String(start_q3.getMonth() + 2).padStart(2, "0");
+   var yyyy2 = start_q3.getFullYear();
+ }
+ var month_q3 = yyyy2 + "-" + mm2 + "-" + dd2;
+ var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q3}&end_date=${month_q3}&api_key=${apiKey}`;
+
+ d3.json(url).then(function(data) {
+   var name = data.dataset.name;
+   var stock = data.dataset.dataset_code;
+   var startDate = data.dataset.start_date;
+   var endDate = data.dataset.end_date;
+   var dates = unpack(data.dataset.data, 0);
+   var closingPrices = unpack(data.dataset.data, 1);
+   var trace4 = {
+     type: "scatter",
+     mode: "lines",
+     name: name,
+     x: dates,
+     y: closingPrices,
+     line: {
+       color: "#17BECF"
+     }
+   };
+   var data4 = [trace4];
+   var layout = {
+     title: `${stock} Stock Price after ${date_title_3} Earnings Report`,
+     xaxis: {
+       range: [startDate, endDate],
+       type: "date"
+     },
+     yaxis: {
+       autorange: true,
+       type: "linear"
+     }
+   };
+   Plotly.newPlot("graph2", data4, layout);
+ });
 
 
+
+ //Q4
+ var start_q4 = new Date(ReportedDate[3]);
+ var dd = String(start_q4.getDate() - 1).padStart(2, "0");
+ var mm = String(start_q4.getMonth() + 1).padStart(2, "0");
+ var yyyy = start_q4.getFullYear();
+ var date_q4 = yyyy + "-" + mm + "-" + dd;
+ var date_title_4 = mm + "/" + dd + "/" + yyyy;
+ if (mm === "12") {
+   var dd2 = String(start_q4.getDate() - 1).padStart(2, "0");
+   var mm2 = "01";
+   var yyyy2 = start_q4.getFullYear() + 1;
+ } else if (mm === "01") {
+   var dd2 = String(start_q4.getDate() - 3).padStart(2, "0");
+   var mm2 = String(start_q4.getMonth() + 2).padStart(2, "0");
+   var yyyy2 = start_q4.getFullYear();
+ } else {
+   var dd2 = String(start_q4.getDate() - 1).padStart(2, "0");
+   var mm2 = String(start_q4.getMonth() + 2).padStart(2, "0");
+   var yyyy2 = start_q4.getFullYear();
+ }
+ var month_q4 = yyyy2 + "-" + mm2 + "-" + dd2;
+ var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${date_q4}&end_date=${month_q4}&api_key=${apiKey}`;
+
+ d3.json(url).then(function(data) {
+   var name = data.dataset.name;
+   var stock = data.dataset.dataset_code;
+   var startDate = data.dataset.start_date;
+   var endDate = data.dataset.end_date;
+   var dates = unpack(data.dataset.data, 0);
+   var closingPrices = unpack(data.dataset.data, 1);
+   var trace4 = {
+     type: "scatter",
+     mode: "lines",
+     name: name,
+     x: dates,
+     y: closingPrices,
+     line: {
+       color: "#17BECF"
+     }
+   };
+   var data4 = [trace4];
+   var layout = {
+     title: `${stock} Stock Price after ${date_title_4} Earnings Report`,
+     xaxis: {
+       range: [startDate, endDate],
+       type: "date"
+     },
+     yaxis: {
+       autorange: true,
+       type: "linear"
+     }
+   };
+   Plotly.newPlot("graph3", data4, layout);
+ });*/
