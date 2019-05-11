@@ -62,7 +62,15 @@
           <hr class="style-one">
           <p></p>
           <p></p>
-          <P class ="heading">XXXX</P>
+          <P class ="heading">Our dataset is consisted of 474 companies and 1692 rows of stock 
+            indicators and prices associated with earning reports for the last 3-4 quarters. 
+            First thing we investigated is looking at how our variables are correlated to one 
+            another. Red color means positive correlation;  blue color indicates negative 
+            correlation. Here we demonstrate that stock prices 45 days after earning reports 
+            strongly correlate with “Next Day Prices” (opening price on the following day after 
+            earning report is released), and some common indicators such as “Lower Band”, 
+            “Middle Band”, “Upper Band”, “20 Days Moving Average”, and “5 Day Moving Average”. 
+            This gives us an idea on which variables to use for our predictive analysis.</P>
         </div>
 
         <div class="col-md-6">
@@ -91,7 +99,14 @@
         <div class="col-md-6">      
           <h1 class="text-right chart_index_margin heading">Stock Price % Change Predictions</h1>  
           <hr class="style-one">
-          <P class ="text-right heading">XXXX</P>
+          <P class ="text-right heading">This time we are looking at the Percent Change in 
+            the stock price 45 days later after earnings reports correlate with other variables. 
+            To normalize our 
+            data, we have divided each indicator with the stocks respective next day price (after earnings report). 
+            This gives a ratio
+            for each indicator so we can compare them without worrying about the stock price. Unfortunately, 
+            % change is not really correlated with any other variables - which means that short-term 
+            stock price change is not easy to predict.</P>
         </div>
       </div>
       <!-- End container 2-->
@@ -107,7 +122,19 @@
           <hr class="style-one">
           <p></p>
           <p></p>
-          <P class ="heading">XXXX</P>
+          <P class ="heading">Here we want to predict the percent change using Linear Regression 
+            model. The independent variables are set as stock price the day after earnings report,
+            the 20 Day Moving Average, the 5 Day Moving Average, the 5 day Lower BBand, and 
+            the Percent Surprise from the earnings report. We are trying to predict the stock price 45 
+            days later. 
+            We also experimented with trying to predict the stock price 15 days, 30 days and 60 days later,
+            but 45 days later was the most accurate.
+            The dataset was then split into 70% train and 30% test dataset. The regression 
+            shows an R-square value of 0.993. It is interesting to note that the 20 day moving average
+          has a negative coefficient and the 5 day moving average has a positive coefficient. While the R-squared 
+        value is very high, the model was unable to predict the stock price accurately enough to use.
+      The Return on Investment for the model was 2%. Predicting the percent change would have yieled better
+    results with the same R-square, but with the data we have, we could not get a model that accurate.</P>
         </div>
 
         <div class="col-md-6">
@@ -139,7 +166,14 @@
         <div class="col-md-6">      
           <h1 class="text-right chart_index_margin heading">Logistic Regression</h1>  
           <hr class="style-one">
-          <P class ="text-right heading">XXXX</P>
+          <P class ="text-right heading">Since the Linear Regerssion model was unable to predict
+            the stock prices accurately enough, we tried to predict if stock price will have a positive
+            percent change or a negative percent change from the day after the earnings report to 45
+            days later. We created an additional column, assigning a 1 if the price went up after 45
+            days and a 0 if the price went down.
+            We then used a Logistic Regression to try to classify each stock as increasing (buy) or 
+            decreasing (sell). The model gives score of 0.625 to 0.640, which was slightly better
+            than picking all stocks to go up, but only a 1.5% Return on Investment.</P>
         </div>
       </div>
       <!-- End container 4-->
@@ -155,7 +189,10 @@
             <hr class="style-one">
             <p></p>
             <p></p>
-            <P class ="heading">XXXX</P>
+            <P class ="heading">We tried using Neural networks to predict stock price 45 days 
+              later. The Neural Network could add a non-linear component to the model to help
+              predict the stock price. Keras Sequential model was used. We passed the data through
+            four layers. Unfortunately, the results were worse than from the regression models.</P>
           </div>
 
           <div class="col-md-6">
