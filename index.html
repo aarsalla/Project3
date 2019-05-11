@@ -1,49 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
   <meta charset="utf-8">
-  <title>Dow Jones plus three</title>
-
-  <!-- Leaflet CSS & JS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-  crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-  crossorigin=""></script>
-
-  <!-- D3 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
-
-  <!-- Overlapping Marker Spiderfier "https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet"-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
-
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="style.css">
-
-  <!-- http://maps.stamen.com/#watercolor/12/37.7706/-122.3782-->
-  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
-
-  <!-- https://github.com/coryasilva/Leaflet.ExtraMarkers -->
-  <link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
-  <script src="js/leaflet.extra-markers.min.js"></script>
-
-  <!-- https://fontawesome.com/start-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-  
-
+  <title>{INSERT TITLE}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
-  <!-- The div where we will inject our map -->
-  <div id="map"></div>
-
-  <!-- API key -->
-  <script type="text/javascript" src="config.js"></script>
-  <!-- Our JS -->
-  <!-- <script type="text/javascript" src="logic.js"></script> -->
-  <script type="text/javascript" src="logic2.js"></script>
-  <!-- <script type="text/javascript" src="logic draft.js"></script> -->
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-equalizer"> | <br> </span>{INSERT TITLE}
+          </a>
+        </div>
+      </div>
+    </nav>
+  <div class="hero text-left">
+    <h1>{INSERT TITLE}</h1>
+      <p>{INSERT SUB-HEADING}</p>
+    </div>
+    <div class="container">
+        <section class="row">
+          <div class="col-md-8">
+              <h1 class="">XXXX</h1>
+          </div>
+        </div>
+  <div class="hero1 hero p text-right">
+    <h1>{INSERT TITLE}</h1>
+      <p>{INSERT SUB-HEADING}</p>
+    </div>
+    <div class="container">
+        <section class="row">
+          <div class="col-md-8">
+              <h1 class="">XXXX</h1>
+          </div>
+        </div>
+  <div class="hero2 hero p text-left">
+      <h1>{INSERT TITLE}</h1>
+        <p>{INSERT SUB-HEADING}</p>
+      </div>
+      <div class="container">
+              <section class="row">
+                <div class="col-md-8">
+                    <h1 class="">XXXX</h1>
+                </div>
+      </div>
+        <footer class="footer">
+            <span class="bottom">{INSERT TEXT}</span>
+        </footer>
+    </div> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/app.js"></script>
 </body>
+
 </html>

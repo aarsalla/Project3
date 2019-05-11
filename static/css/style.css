@@ -1,0 +1,463 @@
+* {
+  box-sizing: border-box;
+  font-family: Ubuntu, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: #e4e9ec;
+}
+
+/* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  /* padding-bottom: 130px; */
+  overflow: auto;
+  background: #e4e9ec;
+}
+
+/* Navbar styles */
+.navbar{
+  background: #e4e9ec;
+  font-family: Ubuntu, sans-serif;
+  font-size: 20px;
+  margin: 10px;
+  color: #5e0000
+}
+
+.nav.navbar-nav.navbar-right li a {
+  color: #5e0000;
+  font-family: Ubuntu, sans-serif;
+  font-weight: bold
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #5e0000; /*Sets the text hover color on navbar*/
+  background-color: rgb(255, 255, 255);
+  border: 2px solid #5e0000;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
+      a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #5e0000; /*BACKGROUND color for active*/
+}
+
+.navbar-default {
+  background-color: #e4e9ec;
+  color: #5e0000;
+}
+
+/* Table properties */
+.table_text{
+  color: #5e0000;
+  text-align: center;
+}
+
+/* The footer is positioned at the bottom of the page */
+.footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 100px;
+  background: #e4e9ec;
+  border-top: 5px solid #5e0000;
+}
+
+/* The code styles the text at the bottom of the footer */
+.footer > .bottom {
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+  margin-top: 10px;
+  left: 0;
+  padding: 5px;
+  background: #e4e9ec;
+  text-align: center;
+  font-family: Ubuntu, sans-serif;
+  font-size: 20px;
+  color: 5e0000;
+}
+
+/* Styles for the parallax images*/
+.hero {
+  position: relative;
+  height: 300px;
+  padding: 40px;
+  margin: 0;
+  background: #e4e9ec;
+  background-image: url("../images/wallstreet.jpg");
+  background-attachment: fixed;
+  background-position: -100px;
+  background-size: cover;
+  font-family: Ubuntu, sans-serif;
+  color: #5e0000;
+}
+
+.hero1 {
+  position: relative;
+  height: 300px;
+  padding: 20px;
+  margin: 0;
+  background: #e4e9ec;
+  background-image: url("../images/trading_floor.jpg");
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-size: cover;
+  font-family: Ubuntu, sans-serif;
+  color: #5e0000;
+}
+
+.hero2 {
+  position: relative;
+  height: 300px;
+  padding: 20px;
+  margin: 0;
+  background: #e4e9ec;
+  background-image: url("../images/stock_trading.jpg");
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-size: cover;
+  font-family: Ubuntu, sans-serif;
+  color: #5e0000;
+}
+
+.image_chart {
+  position: relative;
+  float: right;
+  height: 350px;
+  width: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 5px;
+}
+
+.image_map {
+  position: relative;
+  float: right;
+  height: 250px;
+  width: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 5px;
+}
+
+.image_data {
+  position: relative;
+  float: right;
+  height: 200px;
+  width: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 5px;
+}
+
+.hero p {
+  font-size: 2rem;
+  opacity: 0;
+  animation: subtitle 1.2s forwards linear;
+  animation-delay: 1.2s;
+  color: #5e0000;
+}
+
+.chart_index_margin{
+  margin-top: 150px;
+}
+
+.map_index_margin{
+  margin-top: 100px;
+}
+
+.data_index_margin{
+  margin-top: 75px;
+}
+
+/* media queries which will only be activated at specific screen sizes */
+@media (max-width: 800px) {
+
+}
+
+/* keyframe animations which will be used to animate the title */
+@keyframes title {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    font-size: 7.5rem;
+    opacity: 1;
+  }
+}
+
+@keyframes smaller-title {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    font-size: 5.5rem;
+    opacity: 1;
+  }
+}
+
+@keyframes subtitle {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Map Start  */
+
+#map{
+  height: 500px;
+  margin-top: 10px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+}
+
+.solid {
+  border-style: solid;
+  color: #5e0000;
+  border-width: 5px;
+}
+
+#h2 {
+  text-align: center;
+  text-decoration: underline;
+  color: #5e0000;
+}
+
+.stock-icon {
+  font-size: 10px;
+  margin-top: 8px;
+  height:21px;
+  width: 25px;
+}
+
+/* ----DESCRIPTION START---- */
+.description-header {
+  /* Positioning */
+  margin-bottom: 33px;
+  font-family: Ubuntu, sans-serif;
+
+  /* Typography */
+  font-size: 32px;
+  font-weight: bold;
+  color: #5e0000;
+}
+
+.description-content {
+  /* Box-model */
+  padding: 30px;
+
+  /* Positioning */
+  margin-top: 32px;
+
+  /* Visual */
+  background-color: #e4e9ec;
+}
+
+.description-content > p {
+  /* Box-model */
+  padding-top: 20px;
+
+  /* Typography */
+  font-size: 16px;
+  line-height: 30px;
+  color: #5e0000;
+}
+
+.description-text {
+  padding-bottom: 20px;
+}
+
+#description-image {
+  /* Positioning */
+  float: right;
+
+  /* Box-model */
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/* Description content media query */
+@media only screen and (max-width: 767px) {
+  /* override default class styling for positioning/padding */
+
+  .description-content {
+    /* Box-model */
+    padding: 0;
+
+    /* Positioning */
+    margin-top: 0;
+  }
+}
+
+
+.chart_text {
+  color: #5e0000;
+}
+
+/* Index Page Styles */
+
+.heading{
+  color: #5e0000;
+  font-weight: bold;
+  font-size: 20 px;
+}
+
+/* Horizontal Rules */
+
+hr.style-one {
+    border: 0;
+    height: 3px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #5e0000, #ccc);
+}
+
+hr.style-three {
+  border: 0;
+  border-bottom: 3px dashed #5e0000;
+  background: #e4e9ec;
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+h1 span { 
+   color: #5e0000; 
+   font: bold 45px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(228,233,236); /* fallback color */
+   background: rgba(228,233,236, 0.7);
+   padding: 10px; 
+}
+
+p span { 
+   color: #5e0000; 
+   font: bold 25px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(228,233,236); /* fallback color */
+   background: rgba(228,233,236, 0.7);
+   padding: 10px; 
+}
+
+/* Charts Page Formatting */
+.chart-header {
+  color: #5e0000; 
+  font: bold 20px Helvetica, Sans-Serif; 
+}
+
+.chart-subheader {
+  color: #5e0000; 
+  font: bold 15px Helvetica, Sans-Serif; 
+}
+
+/* Styles for ML Section */
+.image_futurestockprice {
+  position: relative;
+  float: left;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /* margin-left: 50px; */
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_percentchange {
+  position: relative;
+  float: right;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_neuralnetwork {
+  position: relative;
+  float: left;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_clustering {
+  position: relative;
+  float: right;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_linear {
+  position: relative;
+  float: left;
+  height: 475px;
+  width: 625px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /* margin-left: 50px; */
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}
+
+.image_logistic {
+  position: relative;
+  float: right;
+  height: 150px;
+  width: 650px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border-width: 1px;
+}

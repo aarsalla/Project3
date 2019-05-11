@@ -1,0 +1,94 @@
+JVRWPZET16WKYN2D
+Z02M5GHXIOQ1A6YI premium
+REHgZFPuj_3cxTxuwvsn quandl
+
+31 row(s) affected, 31 warning(s): 1265 Data truncated for column '60 Days Later Stock Price' at row 101 1265 Data truncated for column '60 Days Later Stock Price' at row 103 1265 Data truncated for column '60 Days Later Stock Price' at row 375 1265 Data truncated for column '60 Days Later Stock Price' at row 487 1265 Data truncated for column '60 Days Later Stock Price' at row 493 1265 Data truncated for column '60 Days Later Stock Price' at row 502 1265 Data truncated for column '60 Days Later Stock Price' at row 503 1265 Data truncated for column '60 Days Later Stock Price' at row 621 1265 Data truncated for column '60 Days Later Stock Price' at row 631 1265 Data truncated for column '60 Days Later Stock Price' at row 638 1265 Data truncated for column '60 Days Later Stock Price' at row 646 1265 Data truncated for column '60 Days Later Stock Price' at row 755 1265 Data truncated for column '60 Days Later Stock Price' at row 756 1265 Data truncated for column '60 Days Later Stock Price' at row 889 1265 Data truncated for column '60 Days Later Stock Price' at row 1011 1265 Data truncated for column '60 Days Later Stock Price' at row 1040 1265 Data truncated for column '60 Days Later Stock Price' at row 1169 1265 Data truncated for column '60 Days Later Stock Price' at row 1171 1265 Data truncated for column '60 Days Later Stock Price' at row 1277 1265 Data truncated for column '60 Days Later Stock Price' at row 1298 1265 Data truncated for column '60 Days Later Stock Price' at row 1305 1265 Data truncated for column '60 Days Later Stock Price' at row 1466 1265 Data truncated for column '60 Days Later Stock Price' at row 1471 1265 Data truncated for column '60 Days Later Stock Price' at row 1493 1265 Data truncated for column '60 Days Later Stock Price' at row 1600 1265 Data truncated for column '60 Days Later Stock Price' at row 1610 1265 Data truncated for column '60 Days Later Stock Price' at row 1613 1265 Data truncated for column '60 Days Later Stock Price' at row 1738 1265 Data truncated for column '60 Days Later Stock Price' at row 1746 1265 Data truncated for column '60 Days Later Stock Price' at row 1750 1265 Data truncated for column '60 Days Later Stock Price' at row 1862 Rows matched: 31  Changed: 31  Warnings: 31
+
+
+['MMM','AXP','AAPL','BA','CAT','CVX','CSCO',
+         'KO','DIS','DWDP','XOM','GS','HD','IBM','INTC',
+         'JNJ','JPM','MCD','MRK','MSFT','NKE','PFE','PG',
+         'TRV','UTX','UNH','VZ','V','WMT','WBA','AMZN',
+         'GOOGL','FB']
+
+['AOS','ABT','ABBV','ABMD','ACN','ATVI','ADBE',
+	'AAP','AMD','AES','AMG','AFL','A','APD','AKAM',
+	'ALK','ALB','ARE','ALXN','ALGN','ALLE','AGN','ADS',
+	'LNT','ALL','GOOG','MO','AEE','AAL','AEP','AIG',
+	'AMT','AWK']
+
+['AMP','ABC','AME','AMGN','APH','APC','ADI','ANSS',
+	'ANTM','AON','APA','AIV','AMAT','APTV','ADM',
+	'ARNC','ANET','AJG','AIZ','T','ATO','ADSK','ADP',
+	'AZO','AVB','AVY','BHGE','BLL','BAC','BAX','BBT',
+	'BDX','BRK.B']
+
+['BBY','BIIB','BLK','HRB','BKNG','BWA','BXP','BSX','BMY',
+	'AVGO','BR','BF.B','CHRW','COG','CDNS','CPB','COF',
+	'CPRI','CAH','KMX','CCL','CBOE','CBRE','CBS','CE','CELG',
+	'CNC','CNP','CTL','CERN','CF','SCHW','CHTR']
+
+['CMG','CB','CHD','CI','XEC','CINF','CTAS','C','CFG',
+	'CTXS','CME','CMS','CTSH','CL','CMCSA','CMA','CAG',
+	'CXO','COP','ED','STZ','CPRT','GLW','COST','COTY',
+	'CCI','CSX','CMI','CVS','DHI','DHR',
+	'DRI','DVA']
+
+['DE','DAL','XRAY','DVN','FANG','DLR','DFS','DISCA','DISCK',
+	'DISH','DG','DLTR','D','DOV','WYNN','DTE','DUK','DRE',
+	'DXC','ETFC','EMN','ETN','EBAY','ECL','EIX','EW','EA',
+	'EMR','ETR','EOG','EFX','EQIX','EQR']
+
+['ESS','EL','RE','YUM','ES','EXC','EXPE','EXPD',
+	'EXR','FFIV','FAST','FRT','FDX','FIS','FITB',
+	'FRC','FE','FISV','FLT','FLIR','FLS','FLR',
+	'FMC','FL','F','FTNT','FTV','FBHS','BEN',
+	'FCX','GPS','GRMN','IT']
+
+['GD','GE','GIS','GM','GPC','GILD','GPN','GWW',
+	'HAL','HBI','HOG','HRS','HIG','HAS','HCA',
+	'HCP','HP','HSIC','HES','HPE','HLT','HFC',
+	'HOLX','HON','HRL','HST','HPQ','HUM','HBAN',
+	'HII','IDXX','INFO','ITW']
+
+['ILMN','INCY','IR','ICE','IP','IPG','IFF','INTU',
+	'ISRG','IVZ','IPGP','IQV','IRM','JBHT','JKHY',
+	'JEC','WLTW','SJM','JCI','JNPR','KSU','K','KEY',
+	'KEYS','KMB','KIM','KMI','KLAC','KSS','KHC','KR',
+	'LB','LLL']
+
+['LH','LRCX','LW','LEG','LEN','LLY','LNC','XEL','LKQ',
+	'LMT','L','LOW','LYB','MTB','MAC','M','MRO','MPC',
+	'MAR','MMC','MLM','MAS','MA','MAT','MXIM','MKC',
+	'MCK','MDT','MET','MTD','MGM','MCHP','MU']
+
+['MAA','MHK','TAP','MDLZ','MNST','MCO','MS','MSI','MSCI',
+	'MYL','NDAQ','NOV','NKTR','NTAP','NFLX','NWL','NEM',
+	'NWSA','NWS','NEE','NLSN','NI','NBL','JWN','NSC',
+	'NTRS','NOC','NCLH','NRG','NUE','NVDA','OXY','OMC']
+
+['OKE','ORCL','ORLY','PCAR','PKG','PH','PAYX','PYPL','PNR',
+	'PBCT','PEP','PKI','PRGO','PM','PSX','PNW','PXD',
+	'PNC','RL','PPG','PPL','PFG','PGR','PLD','PRU','PEG',
+	'PSA','PHM','PVH','QRVO','QCOM','PWR','DGX']
+
+['RJF','RTN','O','RHT','REG','REGN','RF','RSG','RMD',
+	'RHI','ROK','ROL','ROP','ROST','RCL','SPGI','CRM',
+	'SBAC','SLB','STX','SEE','SRE','SHW','SPG','SWKS',
+	'SLG','SNA','SO','LUV','SWK','SBUX','STT','SYK']
+
+['STI','SIVB','SYMC','SYF','SNPS','SYY','TROW','TTWO',
+	'TPR','TGT','TEL','FTI','TFX','TXN','TXT','BK',
+	'XRX','COO','HSY','MOS','TMO','TIF','TJX','TMK',
+	'TSS','TSCO','TDG','TRIP','XLNX','XYL','TWTR',
+	'TSN','USB']
+
+['UDR','ULTA','UAA','ZION','UNP','UAL','UPS','URI','UHS',
+	'UNM','VFC','VLO','VAR','VTR','VRSN','VRSK','VRTX',
+	'VIAB','VNO','VMC','WAB','WM','WAT','WEC','WCG',
+	'WFC','WELL','WDC','WU','WRK','WY','WHR','WMB']
+
+['ZBH','ZTS']
+ 
+
+1336-1353, 1369-1386, 1402-1419, 1435-1452
