@@ -238,6 +238,15 @@ body {
   background: #e4e9ec;
 }
 
+#map2{
+  height: 500px;
+  margin-top: 10px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  background: #e4e9ec;
+}
+
 .solid {
   border-style: solid;
   color: #5e0000;
@@ -255,6 +264,78 @@ body {
   margin-top: 8px;
   height:21px;
   width: 25px;
+}
+
+.legend {
+  padding: 10px;
+  font-family: Sanchez, serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #555;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.legend .ten-percent-decrease{
+  color: #862020;
+}
+
+.legend .five-to-ten-decrease {
+  color: #f14646;
+}
+
+.legend .zero-to-five-decrease {
+  color: #faaf58;
+}
+
+.legend .zero-to-five-increase {
+  color: #1fa335;
+}
+
+.legend .five-to-ten-increase {
+  color: #00aeffe5;
+}
+
+.legend .ten-percent-increase {
+  color: rgba(77, 1, 163, 0.904);
+}
+
+.legend2 {
+  padding: 10px;
+  font-family: Sanchez, serif;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #555;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.legend2 .ten-percent-decrease{
+  color: #862020;
+}
+
+.legend2 .five-to-ten-decrease {
+  color: #f14646;
+}
+
+.legend2 .zero-to-five-decrease {
+  color: #faaf58;
+}
+
+.legend2 .zero-to-five-increase {
+  color: #1fa335;
+}
+
+.legend2 .five-to-ten-increase {
+  color: #00aeffe5;
+}
+
+.legend2 .ten-percent-increase {
+  color: rgba(77, 1, 163, 0.904);
 }
 
 /* ----DESCRIPTION START---- */
