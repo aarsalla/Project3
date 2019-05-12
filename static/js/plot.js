@@ -119,7 +119,7 @@ function getdata(stock) {
       var trace3 = {
         type: "scatter",
         mode: "lines",
-        name: "Forecasted Earnings Per Share",
+        name: "Forecasted Earnings Per <br> Share",
         x: ReportedDate,
         y: forecasted
       };
