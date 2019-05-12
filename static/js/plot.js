@@ -112,7 +112,7 @@ function getdata(stock) {
       var trace2 = {
         type: "scatter",
         mode: "lines",
-        name: "Actual Earnings Per Share",
+        name: "Actual Earnings Per <br> Share",
         x: ReportedDate,
         y: earnings
       };
