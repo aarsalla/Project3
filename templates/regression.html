@@ -55,6 +55,29 @@
       </div>
       <!-- End of banner -->
 
+      <div class="container-fluid">
+        <section class="row">
+          <div class="col-md-8">
+            <h3 class="heading">Select Stock</h3>
+              <form class="form-inline">
+                <div class="form-group">
+                  <label class="heading" for="stockInput"> Stock | </label>
+                  <select id="selDataset" class= "chart_text" onchange="getstock(this.value)">
+                      <option value=" "></option>
+                      <option value="MMM">3M</option>
+                      <option value="AXP">American Express</option>
+                  </select>
+
+      <!-- Start stock price prediction equation -->
+      <form>
+          <label class="heading" for="stockInput"> Input Stock | </label>
+            <input type="text" id="stockInput" placeholder="Stock Symbol" class = "text-center">
+          <label class="heading" for="surpriseInput"> Input Precent Surprise | </label>
+            <input type="integer" id="surpriseInput" placeholder="Precent Surprise" class = "text-center">
+      </form>
+
+      <!-- End stock price prediction equation -->
+                  
       <!-- Start container 1-->
       <div class="container">
         <div class="col-md-6">      
@@ -234,7 +257,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="/static/js/plot.js"></script>
+  <script src="../static/js/regression.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
