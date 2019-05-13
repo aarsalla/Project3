@@ -136,7 +136,8 @@ function getdata(stock) {
           type: "linear"
         },
         plot_bgcolor: '#e4e9ec',
-      paper_bgcolor:"#e4e9ec"
+      paper_bgcolor:"#e4e9ec",
+      plot_bordercolor: "white"
       };
 
       Plotly.newPlot("plot2", data2, layout);
@@ -498,7 +499,8 @@ function mainPlot() {
     },
     hovermode: 'closest',
     plot_bgcolor: '#e4e9ec',
-      paper_bgcolor:"#e4e9ec"
+      paper_bgcolor:"#e4e9ec",
+      bordercolor: "black"
   };
     Plotly.newPlot("plot", new_plot, new_layout);
     getdata(stock)

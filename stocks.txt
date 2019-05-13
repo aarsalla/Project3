@@ -2,8 +2,19 @@ JVRWPZET16WKYN2D
 Z02M5GHXIOQ1A6YI premium
 REHgZFPuj_3cxTxuwvsn quandl
 
-31 row(s) affected, 31 warning(s): 1265 Data truncated for column '60 Days Later Stock Price' at row 101 1265 Data truncated for column '60 Days Later Stock Price' at row 103 1265 Data truncated for column '60 Days Later Stock Price' at row 375 1265 Data truncated for column '60 Days Later Stock Price' at row 487 1265 Data truncated for column '60 Days Later Stock Price' at row 493 1265 Data truncated for column '60 Days Later Stock Price' at row 502 1265 Data truncated for column '60 Days Later Stock Price' at row 503 1265 Data truncated for column '60 Days Later Stock Price' at row 621 1265 Data truncated for column '60 Days Later Stock Price' at row 631 1265 Data truncated for column '60 Days Later Stock Price' at row 638 1265 Data truncated for column '60 Days Later Stock Price' at row 646 1265 Data truncated for column '60 Days Later Stock Price' at row 755 1265 Data truncated for column '60 Days Later Stock Price' at row 756 1265 Data truncated for column '60 Days Later Stock Price' at row 889 1265 Data truncated for column '60 Days Later Stock Price' at row 1011 1265 Data truncated for column '60 Days Later Stock Price' at row 1040 1265 Data truncated for column '60 Days Later Stock Price' at row 1169 1265 Data truncated for column '60 Days Later Stock Price' at row 1171 1265 Data truncated for column '60 Days Later Stock Price' at row 1277 1265 Data truncated for column '60 Days Later Stock Price' at row 1298 1265 Data truncated for column '60 Days Later Stock Price' at row 1305 1265 Data truncated for column '60 Days Later Stock Price' at row 1466 1265 Data truncated for column '60 Days Later Stock Price' at row 1471 1265 Data truncated for column '60 Days Later Stock Price' at row 1493 1265 Data truncated for column '60 Days Later Stock Price' at row 1600 1265 Data truncated for column '60 Days Later Stock Price' at row 1610 1265 Data truncated for column '60 Days Later Stock Price' at row 1613 1265 Data truncated for column '60 Days Later Stock Price' at row 1738 1265 Data truncated for column '60 Days Later Stock Price' at row 1746 1265 Data truncated for column '60 Days Later Stock Price' at row 1750 1265 Data truncated for column '60 Days Later Stock Price' at row 1862 Rows matched: 31  Changed: 31  Warnings: 31
-
+Chaikin A/D line - N/A
+ADX - 14 days
+Aroon - 25 days
+BBANDS - 20 days
+BBANDS - 5 days
+CCI - 20 days
+EMA - 20 days
+MACD - N/A
+OBV - N/A
+RSI - 10 days
+SMA - 20 days
+SMA - 5 days
+STOCH (SlowD/SlowK) - 14 days
 
 ['MMM','AXP','AAPL','BA','CAT','CVX','CSCO',
          'KO','DIS','DWDP','XOM','GS','HD','IBM','INTC',
@@ -91,4 +102,7 @@ REHgZFPuj_3cxTxuwvsn quandl
 ['ZBH','ZTS']
  
 
-1336-1353, 1369-1386, 1402-1419, 1435-1452
+click on stock - earnings per share graph shows up below, with option to toggle
+periods - do something for periods that arent there?
+
+once clicked on stock - button to return to previous plot
