@@ -20,6 +20,7 @@ function unpack(rows, index) {
   });
 }
 
+// Calling closing stock price from Qandl
 function getstock(stock) {
     var start_date = moment().subtract(5, 'days').format('YYYY-MM-DD');
     var end_date = moment().format('YYYY-MM-DD');
@@ -29,6 +30,7 @@ function getstock(stock) {
     var closingPrices = unpack(data.dataset.data, 1)[0];
     console.log({closingPrices});
 
+// Calling 20 day simple moving average value from Alpha Avantage
     var url_20 = `https://www.alphavantage.co/query?function=SMA&symbol=${stock}&interval=daily&time_period=20&series_type=close&apikey=${AAapiKey}`;
     
     d3.json(url_20).then(function(data) {
@@ -45,6 +47,7 @@ function getstock(stock) {
             }
             console.log({sma20_value});
 
+// Calling 5 day simple moving average value from Alpha Avantage
     var url_5 = `https://www.alphavantage.co/query?function=SMA&symbol=${stock}&interval=daily&time_period=5&series_type=close&apikey=${AAapiKey}`;
 
     d3.json(url_5).then(function(data) {
@@ -61,7 +64,7 @@ function getstock(stock) {
             }
             console.log({sma5_value});
 
-
+// Calling Bollinger bands values from Alpha Avantage
     var url_bBands = `https://www.alphavantage.co/query?function=BBANDS&symbol=${stock}&interval=daily&time_period=5&series_type=close&nbdevup=2&nbdevdn=2&apikey=${AAapiKey}`
 
     d3.json(url_bBands).then(function(data) {
@@ -77,19 +80,34 @@ function getstock(stock) {
             {var bBands_value = bBands_data[end_date]
             }
             console.log({bBands_value});
+    
+
 })
 })
 })
 })
+    var stockInputField = d3.select("#stockInput");
+    var surpriseInputField = d3.select("#surpriseInput");
+
+    var price_prediction = (.6037*closingPrices) + (-.5139*sma20_value) + (.9875*sma5_value) + (-.0707*bBands_value) + (.0151*percent_surprise) * .5137
+    
+    // Submit Button handler
+    function handleSubmit() {
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+
+    // Select the input value from the form
+    var stockInput = d3.select("#stockInput").node().value;
+    console.log(stockInput);
+
+    // Select the input value from the form
+    var surpriseInput = d3.select("#surpriseInput").node().value;
+    console.log(surpriseInput);
+
+    // Clear the input value for both fields
+    d3.select("#stockInput").node().value = "";
+    d3.select("#surpriseInput").node().value = "";
+
+    }
 
 }
-// var prediction = 
-
-// Next Day Prices = .6037 * quandl
-// 20 Day = -.5139 * sma20
-// 5 Day = .9875 *sma5
-// Lower Band = -.0707 * BBands
-// % Surprise = .0151 * user input
-// model.intercept = .5137 (add at end)
-
-// building out input fields in html
