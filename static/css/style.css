@@ -324,7 +324,6 @@ body {
 }
 
 /* Index Page Styles */
-
 .heading{
   color: #5e0000;
   font-weight: bold;
@@ -332,7 +331,6 @@ body {
 }
 
 /* Horizontal Rules */
-
 hr.style-one {
     border: 0;
     height: 3px;
@@ -458,6 +456,16 @@ p span {
   margin-left: 50px;
   background: #e4e9ec;
   border-style: solid;
-  color: #5e0000;
+  color: #d4caca;
   border-width: 1px;
+}
+
+
+::placeholder {
+  color: #5e0000;
+  opacity: 10; 
+}
+
+.btn btn-default{
+  
 }
