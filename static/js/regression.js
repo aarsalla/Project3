@@ -28,12 +28,16 @@ function getstock(stock, surprise) {
     var end_date = moment()
     .subtract(1, "days")
     .format("YYYY-MM-DD")
+    
   var url = `https://www.quandl.com/api/v3/datasets/EOD/${stock}?start_date=${start_date}&end_date=${end_date}&api_key=${QapiKey}`;
 
+
+
   d3.json(url).then(function(data) {
+    
     var closingPrices = unpack(data.dataset.data, 1)[0];
     console.log({ closingPrices });
-
+  
     // Calling 20 day simple moving average value from Alpha Avantage
     var url_20 = `https://www.alphavantage.co/query?function=SMA&symbol=${stock}&interval=daily&time_period=20&series_type=close&apikey=${AAapiKey}`;
 
@@ -52,6 +56,7 @@ function getstock(stock, surprise) {
         var sma20_value = sma20_data[end_date]["SMA"];
       }
       console.log({ sma20_value });
+      
 
       // Calling 5 day simple moving average value from Alpha Avantage
       var url_5 = `https://www.alphavantage.co/query?function=SMA&symbol=${stock}&interval=daily&time_period=5&series_type=close&apikey=${AAapiKey}`;
@@ -107,10 +112,11 @@ function getstock(stock, surprise) {
 
           console.log(surprise)
           console.log(price_prediction)
-
-          if(price_prediction == NaN)
+          
+         
+          if(isNaN(price_prediction))
             {
-                alert(`Test`)
+                alert(`Please enter the percent surprise as a number with no special characters`)
             }
             else
             {alert(`Stock: ${stock} \nSurprise: ${surprise}% \n45 Day Price Prediction:  $${price_prediction_rounded} per share`);
@@ -118,7 +124,8 @@ function getstock(stock, surprise) {
         });
       });
     });
-  });
+  }).catch(err => alert("Please enter a valid stock symbol"));;
+  
 }
 
 // Submit Button handler
