@@ -62,7 +62,7 @@
           <hr class="style-one">
           <p></p>
           <p></p>
-          <P class ="heading">Our dataset is consisted of 474 companies and 1692 rows of stock 
+          <P class ="regression_description">Our dataset is consisted of 474 companies and 1692 rows of stock 
             indicators and prices associated with earning reports for the last 3-4 quarters. 
             The first thing we investigated is looking at how our variables are correlated to one 
             another. The heat map shown to the right shows the different correlations for each variable.
@@ -99,7 +99,7 @@
         <div class="col-md-6">      
           <h1 class="text-right chart_index_margin heading">Stock Price % Change Predictions</h1>  
           <hr class="style-one">
-          <P class ="text-right heading">This time we are looking at the Percent Change in 
+          <P class ="text-right regression_description">This time we are looking at the Percent Change in 
             the stock price 45 days later after earnings reports correlate with other variables. 
             To normalize our 
             data, we have divided each indicator with the stocks respective next day price (after earnings report). 
@@ -122,7 +122,7 @@
           <hr class="style-one">
           <p></p>
           <p></p>
-          <P class ="heading">Here are the results of the Linear Regression 
+          <P class ="regression_description">Here are the results of the Linear Regression 
             model that was used to predict the stock price 45 days later. 
             The independent variables are set as stock price the day after earnings report,
             the 20 Day Moving Average, the 5 Day Moving Average, the 5 day Lower BBand, and 
@@ -167,7 +167,7 @@
         <div class="col-md-6">      
           <h1 class="text-right chart_index_margin heading">Logistic Regression</h1>  
           <hr class="style-one">
-          <P class ="text-right heading">Since the Linear Regerssion model was unable to predict
+          <P class ="text-right regression_description">Since the Linear Regerssion model was unable to predict
             the stock prices accurately enough, we tried to predict if stock price will have a positive
             percent change or a negative percent change from the day after the earnings report to 45
             days later. We created an additional column, assigning a 1 if the price went up after 45
@@ -190,7 +190,7 @@
             <hr class="style-one">
             <p></p>
             <p></p>
-            <P class ="heading">We tried using Neural networks to predict stock price 45 days 
+            <P class ="regression_description">We tried using Neural networks to predict stock price 45 days 
               later. The Neural Network could add a non-linear component to the model to help
               predict the stock price. Keras Sequential model was used. We passed the data through
             four layers. Unfortunately, the results were worse than from the regression models.</P>

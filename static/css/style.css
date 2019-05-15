@@ -543,7 +543,7 @@ p span {
 
 
 ::placeholder {
-  color: #5e0000;
+  color: #a8a8a8;
   opacity: 10; 
 }
 
@@ -560,4 +560,10 @@ p span {
 
 .test_model{
   margin-left: 200px;
+}
+
+.regression_description {
+    color: #000000;
+    font-size: 20 px;
+    font-family: Ubuntu, sans-serif;
 }
