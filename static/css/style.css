@@ -567,11 +567,6 @@ p span {
   opacity: 10; 
 }
 
-  color: #5e0000; /*Sets the text hover color on navbar*/
-  background-color: rgb(255, 255, 255);
-  border: 2px solid #5e0000;
-  margin-bottom: 5px;
-
 .test_model{
   margin-left: 200px;
 }
@@ -580,4 +575,8 @@ p span {
     color: #000000;
     font-size: 20 px;
     font-family: Ubuntu, sans-serif;
+}
+
+.test_model_2{
+  margin-left: 400px;
 }
