@@ -97,7 +97,9 @@ function getdata(stock) {
           yaxis: {
             autorange: true,
             type: "linear"
-          }
+          },
+          plot_bgcolor: '#e4e9ec',
+      paper_bgcolor:"#e4e9ec"
         };
         Plotly.newPlot("graph0", data4, layout);
       });
@@ -110,14 +112,14 @@ function getdata(stock) {
       var trace2 = {
         type: "scatter",
         mode: "lines",
-        name: "Actual Earnings Per Share",
+        name: "Actual Earnings Per <br> Share",
         x: ReportedDate,
         y: earnings
       };
       var trace3 = {
         type: "scatter",
         mode: "lines",
-        name: "Forecasted Earnings Per Share",
+        name: "Forecasted Earnings Per <br> Share",
         x: ReportedDate,
         y: forecasted
       };
@@ -132,7 +134,10 @@ function getdata(stock) {
         yaxis: {
           autorange: true,
           type: "linear"
-        }
+        },
+        plot_bgcolor: '#e4e9ec',
+      paper_bgcolor:"#e4e9ec",
+      plot_bordercolor: "white"
       };
 
       Plotly.newPlot("plot2", data2, layout);
@@ -197,7 +202,9 @@ d3.json(url).then(function(data) {
     yaxis: {
       autorange: true,
       type: "linear"
-    }
+    },
+    plot_bgcolor: '#e4e9ec',
+      paper_bgcolor:"#e4e9ec"
   };
   Plotly.newPlot("graph0", data4, layout);
 });
@@ -272,7 +279,9 @@ function buildPlot(stock) {
       yaxis: {
         autorange: true,
         type: "linear"
-      }
+      },
+      plot_bgcolor: '#e4e9ec',
+      paper_bgcolor:"#e4e9ec"
     };
 
     Plotly.newPlot("plot", data, layout);
@@ -414,13 +423,15 @@ function mainPlot() {
       title: `Dow Jones Closing Prices (2 Years to Date)`,
       xaxis: {
         range: ["2017-05-01", "2019-05-05"],
-        type: "date"
+        type: "date",
       },
       yaxis: {
         autorange: true,
         type: "linear"
       },
-      hovermode: 'closest'
+      hovermode: 'closest',
+      plot_bgcolor: '#e4e9ec',
+      paper_bgcolor:"#e4e9ec"
     };
 
     var traceLevel = [trace_lower,trace_low,trace_med, trace_high,trace_higher]
@@ -440,7 +451,9 @@ function mainPlot() {
         autorange: true,
         type: "linear"
       },
-      hovermode: 'closest'
+      hovermode: 'closest',
+      plot_bgcolor: '#e4e9ec',
+      paper_bgcolor:"#e4e9ec"
     };
       Plotly.newPlot("plot", new_plot, new_layout);
       getdata(stock)
@@ -463,7 +476,9 @@ function mainPlot() {
         autorange: true,
         type: "linear"
       },
-      hovermode: 'closest'
+      hovermode: 'closest',
+      plot_bgcolor: '#e4e9ec',
+      paper_bgcolor:"#e4e9ec"
       
     };
     console.log(this.value)
@@ -482,7 +497,10 @@ function mainPlot() {
       autorange: true,
       type: "linear"
     },
-    hovermode: 'closest'
+    hovermode: 'closest',
+    plot_bgcolor: '#e4e9ec',
+      paper_bgcolor:"#e4e9ec",
+      bordercolor: "black"
   };
     Plotly.newPlot("plot", new_plot, new_layout);
     getdata(stock)

@@ -54,7 +54,7 @@
           <p class="heading"><span>Predicting Stock Prices</span></p>
       </div>
       <!-- End of banner -->
-
+                  
       <!-- Start container 1-->
       <div class="container">
         <div class="col-md-6">      
@@ -64,9 +64,9 @@
           <p></p>
           <P class ="heading">Our dataset is consisted of 474 companies and 1692 rows of stock 
             indicators and prices associated with earning reports for the last 3-4 quarters. 
-            First thing we investigated is looking at how our variables are correlated to one 
-            another. Red color means positive correlation;  blue color indicates negative 
-            correlation. Here we demonstrate that stock prices 45 days after earning reports 
+            The first thing we investigated is looking at how our variables are correlated to one 
+            another. The heat map shown to the right shows the different correlations for each variable.
+            We see that stock prices 45 days after earning reports 
             strongly correlate with “Next Day Prices” (opening price on the following day after 
             earning report is released), and some common indicators such as “Lower Band”, 
             “Middle Band”, “Upper Band”, “20 Days Moving Average”, and “5 Day Moving Average”. 
@@ -122,8 +122,9 @@
           <hr class="style-one">
           <p></p>
           <p></p>
-          <P class ="heading">Here we want to predict the percent change using Linear Regression 
-            model. The independent variables are set as stock price the day after earnings report,
+          <P class ="heading">Here are the results of the Linear Regression 
+            model that was used to predict the stock price 45 days later. 
+            The independent variables are set as stock price the day after earnings report,
             the 20 Day Moving Average, the 5 Day Moving Average, the 5 day Lower BBand, and 
             the Percent Surprise from the earnings report. We are trying to predict the stock price 45 
             days later. 
@@ -203,13 +204,13 @@
             <p></p>
             <p></p>
         </div>
-        <!-- End container 5-->
+        <!-- End container 5
 
         <div class="col-md-12">      
             <hr class="style-three">
         </div>
-
-        <!-- Start container 6-->
+      -->
+        <!-- Start container 6
         <div class="container">
             <div class="col-md-6">
                 <a href="/regression">
@@ -224,7 +225,26 @@
               <P class ="text-right heading">XXXX</P>
             </div>
           </div>
-          <!-- End container 6-->
+           End container 6-->
+
+        <div class="col-md-12">      
+            <hr class="style-three">
+        </div>
+
+      <!-- Start stock price prediction equation -->
+      <div class="container-fluid">
+        <section class="row">
+          <div class="col-md-8">
+            <h3 class="heading">Test our Model:</h3>        
+              <label class="heading" for="stockInput"> Input Stock | </label>
+                <input type="text" id="stockInput" placeholder="Stock Symbol" class = "text-center">
+              <label class="heading" for="surpriseInput"> Input Percent Surprise | </label>
+            <input type="integer" id="surpriseInput" placeholder="Precent Surprise" class = "text-center">
+          <button id="" type="button" class="btn btn-default heading" onclick="handleSubmit()">Submit</button>
+        </div>  
+        </section>
+      </div>
+      <!-- End stock price prediction equation -->
 
     </div>
 
@@ -234,9 +254,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="/static/js/plot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="../static/js/regression.js"></script>
 </body>
 
 </html>
