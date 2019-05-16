@@ -233,7 +233,7 @@ body {
   height: 500px;
   margin-top: 10px;
   margin-right: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   margin-left: 50px;
   background: #e4e9ec;
 }
@@ -242,7 +242,7 @@ body {
   height: 500px;
   margin-top: 10px;
   margin-right: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   margin-left: 50px;
   background: #e4e9ec;
 }
@@ -541,22 +541,36 @@ p span {
   border-width: 1px;
 }
 
+.form-actions {
+  margin: 0;
+  background-color: transparent;
+  text-align: center;
+}
+
+.btn {
+  margin: 0;
+  background: #e4e9ec;
+  border-style: solid;
+  color: #5e0000;
+  border: 2px solid #5e0000;
+  text-align: center; 
+}
+
+.btn:focus {
+  color:#e4e9ec; 
+  background-color: #5e0000; 
+  border-color: #5e0000;
+}
 
 ::placeholder {
   color: #a8a8a8;
   opacity: 10; 
 }
 
-.btn-default{
   color: #5e0000; /*Sets the text hover color on navbar*/
   background-color: rgb(255, 255, 255);
   border: 2px solid #5e0000;
   margin-bottom: 5px;
-}
-
-.stockInput{
-  margin-left: 400px;
-}
 
 .test_model{
   margin-left: 200px;
