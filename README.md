@@ -23,5 +23,14 @@ The next idea we had was to try a logistic regression model to see if we could p
 Finally, we tried a Neural Network model to try and add a non-linear component to the model. This model was not accurate either. The best model we had was the first one we tried. The biggest take away from this analysis was that the companies earnigs reports did not factor much into the stock price 45 days later.
 
 ## Built With
+* [AWS](https://aws.amazon.com/)
+* [Flask](https://www.fullstackpython.com/flask.html)
+* [Splinter](https://splinter.readthedocs.io/en/latest/)
+* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+* [Python](https://www.python.org/)
+* [HTML](https://www.w3schools.com/html/)
+* [JavaScript](https://www.javascript.com/)
+* [Heroku](https://www.heroku.com/)
 
 ## Authors
+See the list of [contributors](https://github.com/aarsalla/Project3/graphs/contributors) who participated in this project along with individual commit history.
